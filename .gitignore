@@ -1,0 +1,8 @@
+paper/build/
+tmp/
+__pycache__/
+.DS_Store
+/output/*
+!/output/pdf/
+/output/pdf/*
+!/output/pdf/facct2027_working_draft.pdf

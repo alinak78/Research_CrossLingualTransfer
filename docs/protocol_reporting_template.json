@@ -1,0 +1,73 @@
+{
+  "artifact_type": "candidate_reporting_template",
+  "evidence_status": "template_not_study_results",
+  "study_id": null,
+  "protocol_version": "candidate-1",
+  "institution": {
+    "action": null,
+    "acceptable_alternatives": null,
+    "rule_review_status": "not reviewed",
+    "correction_owner": null,
+    "capacity_preconditions": {
+      "funded_review_staff": null,
+      "language_support": null,
+      "escalation_limits": null,
+      "non_automated_route": null,
+      "capacity_status": "not assessed",
+      "decision_rule": "Withhold consequential automated routing if correction and recourse capacity is absent."
+    }
+  },
+  "data": {
+    "origin": null,
+    "languages": [],
+    "scripts": [],
+    "scenario_count": null,
+    "template_grouping": null,
+    "linguistic_review_status": "not performed",
+    "legal_review_status": "not performed"
+  },
+  "design": {
+    "model_version": null,
+    "prompt_hash": null,
+    "context_provenance": null,
+    "context_intervention": null,
+    "same_context_across_scripts": null,
+    "primary_contrast": null,
+    "analysis_frozen_before_inference": null
+  },
+  "annotation": {
+    "independent_reviewers": null,
+    "evidence_spans_required": true,
+    "adjudication_rule": null,
+    "agreement": null,
+    "agreement_by_language_script_and_type": null,
+    "reviewer_language_competence": null,
+    "competing_pragmatic_readings": null,
+    "code_switching_effects": null,
+    "original_spans_and_alternative_glosses": null
+  },
+  "outcomes": {
+    "status": "not measured",
+    "attempted_cases": null,
+    "invalid_outputs": null,
+    "substantive_responses": null,
+    "escalations": null,
+    "confirmed_intrusion_cases": null,
+    "unresolved_cases": null,
+    "intrusion_all_attempts": null,
+    "intrusion_substantive_only": null,
+    "ambiguity_bounds": null,
+    "valid_referrals": null
+  },
+  "recourse": {
+    "status": "not measured",
+    "detection_time": null,
+    "acknowledgement_time": null,
+    "correction_time": null,
+    "propagation_time": null,
+    "downstream_receipt_verified": null,
+    "unresolved_corrections": null,
+    "translation_cost_bearer": null
+  },
+  "claim_boundary": "Populate only observed evidence. Null is unmeasured, not zero. No certification or publication-eligibility claim."
+}
