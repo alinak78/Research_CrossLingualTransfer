@@ -23,12 +23,6 @@ This folder contains a concrete research adaptation and a clearly marked working
 - [Pilot abstract](docs/pilot_abstract_NOT_FOR_SUBMISSION.txt): working text only, not a suitable registration abstract for a distinct study.
 - [Validation record](docs/VALIDATION.md).
 
-## What changed
-
-The adaptation replaces generic cross-lingual comprehension framing with institutional recognition, complaint fidelity, locally valid categories, and potential routing consequences. It separates measured prediction errors from unmeasured user harms. It replaces independent-sample inference with paired exact tests, corrects across 18 exploratory contrasts, counts invalid outputs as errors, and removes unsupported causal claims about internal model reasoning. It explicitly notes the missing English no-RAG baseline and the adapted taxonomy's jurisdictional limits.
-
-The original `../Research-TuluLegalRAG` files remain the source of data and archived model predictions. No model weights, APIs, or original pipeline files were changed. No sensitive court text is copied into this package.
-
 ## Reproduce
 
 Run from this folder:
