@@ -1,0 +1,78 @@
+{
+  "status": "frozen_before_new_inference_exploratory_not_preregistered",
+  "prepared_at": "2026-10-30T23:42:07.746986+00:00",
+  "design": "16 existing development scenarios, 2 per category; 3 query representations x 4 English synthetic contexts x 2 prompt policies; 1 generation each",
+  "n_scenarios": 16,
+  "n_planned_calls": 384,
+  "selection_seed": 20261030,
+  "scenario_ids": [
+    6,
+    11,
+    16,
+    20,
+    23,
+    24,
+    29,
+    31,
+    32,
+    36,
+    39,
+    48,
+    49,
+    52,
+    54,
+    58
+  ],
+  "source_sha256": "8b5a54bc6f651c17e6fa78f2151e09955d62fb830b19a1f75b0681211d7bb585",
+  "schedule_sha256": "ec91d3efa1c02b507e29709e7405c9989a69c9fdccc93bf713ebc9dff13471b2",
+  "runner_sha256_at_preparation": "e02d3b32df39c0bf7eac3f3eb8cb1914557b541fa3c4c58bef5406bd9babe924",
+  "options": {
+    "temperature": 0.0,
+    "seed": 20261030,
+    "num_ctx": 4096,
+    "num_predict": 512
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "category": {
+        "type": "string",
+        "enum": [
+          "Consumer/Money/Debt",
+          "Courts/Legal-System",
+          "Estates/Wills",
+          "Housing",
+          "IP/Identity",
+          "Land/Property",
+          "Torts/Individuals",
+          "Work/Employment"
+        ]
+      },
+      "complaint_facts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 3
+      },
+      "explanation": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "category",
+      "complaint_facts",
+      "explanation"
+    ],
+    "additionalProperties": false
+  },
+  "limits": [
+    "Existing development scenarios, not held-out or new human-authored data.",
+    "English contexts held fixed across representations; not original Kannada-corpus RAG.",
+    "Source-detail addition changes context length; content and length are not isolated.",
+    "Baseline and guard prompts differ in length and instructions.",
+    "Marker echo is an automatic screening signal, not expert intrusion annotation.",
+    "One local 1B model, one generation per cell, no population or agent-workflow claims.",
+    "No expert annotations or linguistic/legal validation performed."
+  ]
+}

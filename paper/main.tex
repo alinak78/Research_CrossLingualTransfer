@@ -7,13 +7,13 @@
 \title{Whose Facts Count? Complaint Fidelity and Language Equity in Cross-Lingual Legal Intake}
 \begin{document}
 \begin{abstract}
-This paper develops a normative and methodological framework for evaluating cross-lingual legal intake. Its premise is that a system should justify assertions attributed to the person seeking help and an institution should be able to repair unsupported ones. We distinguish category reproduction, complaint fidelity, and locally appropriate referral, and specify a candidate protocol using controlled contexts, proposition-level annotation, explicit denominators, and correction responsibilities. A published Tulu/Kannada pilot provides a diagnostic illustration, not new benchmark data or validation of the protocol. A matched reanalysis covers 60 authored scenarios, three models, 19 conditions, and 3,420 archived predictions. For Llama3 under full Kannada-script priming, retrieval changes accuracy from 36/60 to 14/60, with 26 correct-to-incorrect reversals and four recoveries; the exploratory contrast remains detectable after correction across 18 paired tests. These category changes identify a need for different evidence but establish neither factual intrusion nor realized referral harm. We connect the evidence boundary to retrieval and tool-mediated administrative architectures without claiming cross-domain empirical generalization. Worked examples, a reporting specification, and a capacity-based precondition for consequential automation make the proposal inspectable. The direct fidelity study remains unexecuted: reliability, feasibility, and effectiveness require independent linguistic and institutional validation.
+This paper develops a normative and methodological framework for evaluating cross-lingual legal intake. It separates category reproduction, complaint fidelity, and locally appropriate referral, and assigns institutions responsibility for repairing unsupported personal attributions. A matched reanalysis of 3,420 predictions from a published Tulu/Kannada pilot diagnoses classification instability without treating it as new benchmark evidence. A new exploratory experiment partially instantiates the protocol: 384 local-model calls cross 16 reused development scenarios, three query representations, four English synthetic-context conditions, and two prompting policies. Of these, 308 yield valid structured outputs and 76 truncate. Literal source-marker echoes occur in structured complaint-fact fields, but automated screening does not establish factual intrusion. The prompt guard does not consistently improve category reproduction, and none of the secondary paired comparisons passes Holm correction. English contexts repeat scenario glosses and can act as oracle translation scaffolds; the experiment does not evaluate natural retrieval or independently validated Tulu understanding. The primary contribution remains an evidentiary boundary and reusable evaluation protocol, with worked attribution examples and institutional capacity as a precondition for consequential automation. Expert proposition annotations, linguistic validation, and referral outcomes remain absent; the completed diagnostic does not validate the framework's reliability or effectiveness.
 \end{abstract}
 \ccsdesc[500]{Computing methodologies~Natural language processing}
 \ccsdesc[300]{Social and professional topics~Computing / technology policy}
 \keywords{complaint fidelity, language equity, legal intake, Tulu, retrieval-augmented generation, sociotechnical evaluation}
 \maketitle
-\begin{quote}\small Working manuscript. Existing model results are reused from the published ORACLE 2026 pilot. The proposed direct complaint-fidelity study is not yet executed; publication eligibility is unresolved for any future distinct submission.\end{quote}
+\begin{quote}\small Working manuscript. Published pilot predictions are reused and supplemented by 384 new exploratory local-model calls. Expert fidelity validation remains unexecuted; publication eligibility remains unresolved.\end{quote}
 
 \section{Introduction}
 
@@ -29,21 +29,17 @@ We develop this argument using the published pilot of Shetty and colleagues \cit
 
 The paper addresses three questions. RQ1: How do the archived classifications vary across script representations and after the addition of legal retrieval? RQ2: Which conclusions about the complainant's account and potential referral consequences are supported by these differences, and which require different evidence? RQ3: How should a direct audit of complaint fidelity separate contextual relevance, source-fact intrusion, script representation, and institutional routing?
 
-The contribution has three parts: an evidentiary boundary between complaint facts and source facts; a candidate protocol specifying annotation, controlled comparisons, and claim-specific evidence; and institutional responsibilities for correcting unsupported attributions. Appendix B supplies worked examples and a reporting specification that make these distinctions inspectable. The completed reanalysis of 3,420 archived predictions and 18 paired comparisons is a diagnostic illustration of classification instability, not evidence validating fidelity. A clearer framing does not by itself establish novelty or satisfy prior-publication policy. No new participant study, linguistic validation, or model experiment is claimed.
+The contribution has three parts: an evidentiary boundary between complaint facts and source facts; a candidate protocol specifying annotation, controlled comparisons, and claim-specific evidence; and institutional responsibilities for correcting unsupported attributions. Appendix B supplies worked examples and a reporting specification that make these distinctions inspectable. The completed reanalysis of 3,420 archived predictions and 18 paired comparisons is a diagnostic illustration of classification instability, not evidence validating fidelity. A clearer framing does not by itself establish novelty or satisfy prior-publication policy. A new exploratory controlled-context experiment supplies 384 generations from one local model on 16 reused development scenarios. It partially instantiates the protocol without supplying expert fidelity labels, linguistic validation, or participant evidence.
 
-The case illustrates an architectural boundary relevant beyond legal intake: external documents enter a model's working context, become candidate facts in an account, and may feed a downstream recommendation or action. An agent could carry an unsupported attribution into a form, summary, or routing call. The Tulu/Kannada pilot exposes classification sensitivity at one point in that chain; it does not measure those agent actions or prove a broader minority-language effect. Generalization concerns the evaluative question, not an estimated harm rate.
-
-The application is intake support, not legal advice or rights adjudication. Error consequences depend on the receiving institution. We analyze conditional pathways to burden and exclusion without treating computational errors as documented adverse outcomes.
+The architectural question extends to agents that carry external content into forms, summaries, or routing calls: what authorizes each personal assertion? This case does not measure downstream actions or cross-domain harms. Intake support remains distinct from legal advice and adjudication; consequences depend on the institution.
 
 \section{Setting: language, categories, and institutional recognition}
 
 \subsection{A multilingual intake problem}
 
-The pilot pairs Tulu descriptions of everyday legal problems with Kannada legal documents. This pairing provides a concrete case in which the language of a person's account differs from the language of a supporting information resource. We use this relationship to investigate the design of an intermediary, rather than to make claims about the language abilities of all Tulu speakers or the language practices of all courts and legal services. The available material does not establish speakers' preferred scripts, proficiency in other languages, or experience seeking assistance.
+The pilot pairs Tulu descriptions of everyday legal problems with Kannada legal documents. We examine this intermediary without inferring speakers' preferred scripts, proficiency, or service experiences. Different people may use different conventions or switch languages. Better performance on one representation does not justify requiring speakers to adopt it; conversion can impose work or erase distinctions. Those costs require situated evidence.
 
-An intake route also cannot be inferred directly from a language label. Different speakers may use different orthographic conventions or switch languages for different tasks. A system that performs better on one written representation has not thereby established that people should be required to adopt it. Requiring conversion could place additional work on the person seeking help and could erase distinctions that matter to their account. Whether these costs arise in practice requires evidence from the relevant users and service, which this pilot does not provide.
-
-For analytical purposes, we model intake as four linked activities: eliciting the account, interpreting it, assigning one or more categories, and selecting a next step. The archived task directly evaluates only category assignment against authored labels. It contains neither a conversational elicitation process nor a real service directory. This boundary matters because a classifier can be consistently wrong against a benchmark, inconsistently wrong across representations, or differently categorized but serviceable for referral. Those are distinguishable findings.
+Intake links eliciting an account, interpreting it, assigning categories, and selecting a next step. The archived task measures only category agreement against authored labels. It includes neither conversational elicitation nor a real service directory. Benchmark error, representation inconsistency, and unsuitable referral are different outcomes.
 
 \subsection{Category systems as institutional choices}
 
@@ -63,15 +59,15 @@ These responsibilities are proposed; no service partnership or completed consult
 
 \subsection{Fairness beyond a predictive label}
 
-Selbst and colleagues examine the loss of social context when fairness problems are abstracted into technical systems \cite{selbst}. Our framework applies that concern to a specific point of abstraction: transforming a complaint into a legal category. The relevant questions include what counts as a faithful interpretation, how a category becomes a route, and who can correct the transformation. We consequently avoid equating a script-associated accuracy difference with a complete measure of justice. The case motivates an audit of the surrounding decision process as well as the model output.
+Selbst and colleagues describe how technical abstraction loses social context \cite{selbst}. Transforming a complaint into a category raises questions about faithful interpretation, institutional routing, and correction authority. A script-associated accuracy difference alone cannot answer them.
 
 \subsection{Language inclusion and data documentation}
 
-Joshi and colleagues document uneven language representation in NLP resources and research \cite{joshi}. This motivates scrutiny of which languages and scripts benefit from a computational intervention. It does not determine a particular model's exposure to Tulu or justify inferring individual users' capabilities from language-resource categories. Bender and Friedman propose data statements to clarify the populations and conditions represented in language datasets \cite{bender}. We apply that documentation principle to authored scenarios, script production, reviewer expertise, and the boundaries of generalization. Parallel script versions are representations of the same cases, not evidence from separate speaker populations.
+Joshi and colleagues document uneven language representation in NLP \cite{joshi}. Resource categories do not establish a model's Tulu exposure or an individual's capabilities. Bender and Friedman's data statements motivate documenting authored scenarios, script production, reviewer expertise, and generalization boundaries \cite{bender}. Parallel scripts represent the same cases, not separate speaker populations.
 
 \subsection{Authority over language resources}
 
-Bird critiques approaches that treat language and community knowledge as resources available for extraction and emphasizes different relationships with knowledge holders \cite{bird}. The implication for this study is procedural: a plan to collect additional Tulu examples should include authority over use, interpretation, and release, rather than treating speaker review as a final quality check. We do not assume that the history or status of every language community is interchangeable. The practical question is which decisions the people affected by this particular intake system can influence.
+Bird critiques extractive approaches to language technology \cite{bird}. Additional Tulu material should involve authority over use, interpretation, and release, rather than speaker review as a final quality check. The question is which decisions affected people can influence, without treating every language community as interchangeable.
 
 \subsection{Retrieval and legal reliability}
 
@@ -100,8 +96,8 @@ Referral validity measures whether a suggested next step is appropriate under a 
 \toprule
 Layer & Audit question & Evidence in this paper \\
 \midrule
-Category reproduction & Does the output match the designated primary label? & Completed on archived predictions; labels not independently validated. \\
-Complaint fidelity & Are assertions about this complaint supported by the account? & Operational definition and prospective annotation; no expert-labeled fidelity results. \\
+Category reproduction & Does the output match the designated primary label? & Archived predictions and 384 new calls; labels not independently validated. \\
+Complaint fidelity & Are assertions about this complaint supported by the account? & Protocol and literal-marker screen; no expert-labeled fidelity results. \\
 Referral validity & Is the next step appropriate for a specified service? & Institutional validation proposed; no observed referral outcomes. \\
 \bottomrule
 \end{tabular}
@@ -143,44 +139,33 @@ Predictions come from Llama3, Hex-1, and Sarvam under 19 conditions spanning scr
 
 We ingest all main-experiment CSVs and join records using model, condition, and scenario identifier. This produces 3,420 unique records, with 60 scenarios in each of 57 model-condition groups. Every stored primary reference label matches the consolidated JSONL dataset, and recomputing exact primary-label correctness matches the saved Hits@1 score for every row. Thirty-three primary outputs contain explicit error or parse-failure markers. They count as incorrect rather than disappearing from the denominator.
 
-The analysis checks duplicate keys, scenario completeness, and agreement with reference labels and stored correctness. Input hashes are retained in a machine-readable manifest. These checks establish internal consistency of the supplied archive, not independent verification of the authoring process or legal validity of the labels. We do not rerun models, upload source documents, or reconstruct undocumented historical service settings.
+The analysis checks duplicate keys, scenario completeness, and agreement with reference labels and stored correctness. Input hashes are retained in a machine-readable manifest. These checks establish internal consistency of the supplied archive, not independent verification of the authoring process or legal validity of the labels. We do not rerun the historical model configurations or reconstruct undocumented service settings. The new experiment below uses synthetic contexts and a separate local model; no court documents are sent to it.
 
 \subsection{Matched contrasts}
 
-We select six comparisons per model. Three compare Kannada-script and romanized Tulu without retrieval, at unprimed, sparse-primed, and full-primed settings. Three compare retrieval against no retrieval for Kannada-script Tulu, holding the priming tier fixed. Table 2 defines the conditions used for these comparisons. The English condition is retained descriptively because the corresponding English no-retrieval condition is absent.
-\begin{table}[htbp]
-\caption{Conditions used in the selected paired comparisons.}
-\label{tab:conditions}
-\centering
-\begin{tabular}{@{}p{0.24\linewidth}p{0.34\linewidth}p{0.15\linewidth}p{0.11\linewidth}@{}}
-\toprule
-Code & Query representation & Priming & Retrieval \\
-\midrule
-G / H & Romanized / Kannada-script Tulu & None & No \\
-M\_sparse / E\_sparse & Romanized / Kannada-script Tulu & Sparse & No \\
-M\_full / E\_full & Romanized / Kannada-script Tulu & Full & No \\
-F & Kannada-script Tulu & None & Yes \\
-D\_sparse / D\_full & Kannada-script Tulu & Sparse / full & Yes \\
-A & English gloss & None & Yes \\
-\bottomrule
-\end{tabular}
-\end{table}
+We select six comparisons per model. Three compare Kannada-script and romanized Tulu without retrieval, at unprimed, sparse-primed, and full-primed settings. Three compare retrieval against no retrieval for Kannada-script Tulu, holding the priming tier fixed. Appendix A defines the conditions used for these comparisons. The English condition is retained descriptively because the corresponding English no-retrieval condition is absent.
 
 For two conditions evaluated on the same scenarios, an accuracy difference can hide changes in opposite directions. We therefore count cases correct only in the first condition, cases correct only in the second, and all primary-label changes. In the retrieval comparisons, correct-to-incorrect reversals are cases correct without retrieval and incorrect with retrieval; recoveries are the reverse. Label changes additionally include transitions between two incorrect categories and should not be reported as newly introduced errors.
 
 \subsection{Statistical scope}
 
-We use two-sided exact McNemar tests, equivalently exact binomial tests on the discordant correctness pairs, and Holm correction over the 18 selected comparisons. The contrasts were selected after inspecting the prior paper and are exploratory. Multiplicity correction within this family does not remove the effects of all prior analytic choices or make the analysis preregistered. Complete comparisons appear in the appendix and machine-readable artifact.
+We use two-sided exact McNemar tests and Holm correction across 18 selected archived comparisons. Selection followed inspection of the prior paper, so these are exploratory; correction does not remove all prior analytic choices. Appendix A preserves complete results. Artifact Wilson intervals do not confer population representativeness. Paired tests assume independent scenario units, potentially violated by shared templates. Archived runs contain no repeated-generation estimate. Top-three overlap, model confidence, and generated rationales do not establish valid routing, calibration, or internal reasoning.
 
-Descriptive Wilson intervals for individual condition accuracies are available in the artifact. They do not make a purposively authored dataset population-representative. Interpretation also assumes independent scenario units; shared templates or repeated situations can weaken that assumption. A future dataset should define and preserve template groups when estimating uncertainty. The archived outputs offer no repeated-generation estimate, so we cannot characterize stochastic variability or current API behavior from these records.
+\subsection{New controlled-context diagnostic: design and measurement}
 
-We do not treat the pilot's top-three overlap measure as interchangeable with primary-category correctness. Secondary labels can reveal ambiguity, but they do not establish a validated set of acceptable referrals. Similarly, a confidence value supplied by a model is not assumed calibrated, and a generated explanation is not assumed faithful to its internal computation. The completed analysis concerns recorded classifications under recorded conditions.
+We generate new outputs from the installed local llama3.2:1b model (metadata: 1.2B parameters, Q8\_0), distinct from the historical pilot models. A fixed seed selects two scenarios per existing primary category, giving 16 reused development cases. Each has English-gloss, romanized-Tulu, and Kannada-script-Tulu queries, four contexts, and baseline or fidelity-guard instructions: 384 calls, one generation per cell. The guard asks the model to separate source facts from personal facts, assert only complaint-supported details, and retain uncertainty. It is a candidate intervention, not a validated safeguard.
 
-\section{Results: classification changes in the archived pilot}
+Contexts are fixed English synthetic vignettes, identical across query representations and policies. No context supplies no vignette. Relevant context repeats the scenario's English gloss as an illustrative case about a different person. Relevant-with-details adds a separate claimant's age 47 and incident year 2019; irrelevant-with-details uses a different-category scenario with the same markers. These numerals are absent from the selected complaint glosses. Relevant context supplies an oracle semantic scaffold, potentially a translation aid; this is not natural retrieval from Kannada court records. Added details also change length. The design does not isolate semantic conflict from every wording or length effect.
+
+Inputs and a randomized schedule were frozen before main inference, with temperature 0, seed 20261030, context budget 4096, and output budget 512 tokens. Two prior infrastructure smoke calls at 180 tokens both truncated and remain separately archived; the larger budget was selected afterward. This is exploratory, not preregistered. A JSON schema requests a category, up to three complaint facts, and an explanation. Requests, raw responses, model digest, options, input hashes, and timings are retained. Appendix C provides full condition and paired results.
+
+All-attempt category scoring counts incomplete structures as errors. A literal screen checks valid complaint-fact fields for 47 or 2019; this is a marker echo, not adjudicated source-fact intrusion. Negation and quotation can trigger it, while paraphrase and spelled-out numbers can escape it. No expert labels are produced. Secondary guard-versus-baseline comparisons use two-sided exact McNemar tests, with separate Holm families of 12 category contrasts and six marker contrasts. Category comparisons retain all 16 attempts per cell; marker comparisons require both paired outputs to be valid and can therefore be selection-biased. No script-by-policy interaction or population effect is established.
+
+\section{Results: archived classifications and new controlled-context diagnostic}
 
 \subsection{Coverage and descriptive performance}
 
-All selected comparisons use the same 60 authored scenarios per model. Table 3 shows selected condition counts, retaining invalid outputs as errors. The complete 19-condition summary is preserved in the artifact. These are recomputed results from the published pilot, not newly collected experimental findings \cite{prior}.
+All selected comparisons use the same 60 authored scenarios per model. The selected-condition table shows counts, retaining invalid outputs as errors. The complete 19-condition summary is preserved in the artifact. These are recomputed results from the published pilot, not newly collected experimental findings \cite{prior}.
 \begin{table}[htbp]
 \caption{Correct primary labels out of 60 scenarios; all invalid outputs count as errors.}
 \label{tab:accuracy}
@@ -200,37 +185,11 @@ These counts characterize particular configurations on authored cases, not a cei
 
 Effects remain disaggregated because model configurations differ and their descriptive directions vary. Pooling them would obscure this heterogeneity; the results do not rank model families by suitability for a community.
 
-\subsection{Script representation}
+\subsection{Script representation and retrieval transitions}
 
-For unprimed inputs without retrieval, Llama3 classifies 28/60 Kannada-script scenarios correctly and 10/60 romanized scenarios correctly, a 30.0 percentage-point difference. The paired counts are 23 correct only in Kannada script and five correct only in romanized form, giving a Holm-adjusted p-value of 0.01283. Its primary labels differ between the scripts for 47 scenarios. The latter is a consistency measure, not the number of additional correct decisions.
+Without priming or retrieval, Llama3 gives 28/60 correct labels in Kannada script and 10/60 in romanized form, with 23 Kannada-only correct pairs and five romanized-only pairs (Holm p = 0.01283). Hex-1 and Sarvam show descriptive differences of 25.0 and 15.0 percentage points, respectively, but neither unprimed contrast passes the selected correction. Under full priming, all three script contrasts pass correction. These conditions bundle script and script-matched priming, including vocabulary overlap; they do not isolate tokenizer effects or justify mandatory script conversion.
 
-Hex-1 has an unprimed difference of 25.0 points, with 21 Kannada-only correct cases and six romanized-only correct cases; its adjusted p-value is 0.05925. Sarvam has a difference of 15.0 points, with 16 Kannada-only correct cases and seven romanized-only correct cases; its adjusted p-value is 0.55884. The directions are descriptive evidence of representation sensitivity, but the corrected tests do not support claiming the same detectable effect for every model.
-
-Under full priming, the Kannada-versus-romanized differences are 28.3 points for Llama3, 35.0 for Hex-1, and 26.7 for Sarvam. All three selected full-priming comparisons have adjusted p-values below 0.05. These comparisons still bundle a query representation with a script-matched priming block. They do not isolate a tokenizer effect, establish natural preference for one script, or show that mandatory script conversion would improve access for actual users.
-
-\subsection{Retrieval reversals and recoveries}
-
-For Llama3 under full Kannada-script priming, adding retrieval changes accuracy from 36/60 to 14/60, a decline of 36.7 points. Twenty-six correct classifications become incorrect and four incorrect classifications become correct. The exact paired p-value is approximately 0.0000595 and the Holm-adjusted p-value is 0.00101. Primary labels change for 43 scenarios, including changes between two wrong categories.
-
-The directional count matters for evaluation: retrieval can recover some errors while introducing more. Reporting only disagreement or a mean score conceals this exchange. Table 4 makes the distinction explicit for the full-priming comparison. The net score change is a summary of these transitions; it is not a measured rate of factual intrusion or a referral-harm estimate.
-\begin{table}[htbp]
-\caption{Full-priming Kannada-script retrieval contrasts. Reversals become incorrect; recoveries become correct.}
-\label{tab:reversals}
-\centering
-\begin{tabular}{@{}lrrrrr@{}}
-\toprule
-Model & Reversals & Recoveries & Label changes & Delta pp & Holm p \\
-\midrule
-llama3 & 26 & 4 & 43 & -36.7 & 0.00101 \\
-hex1 & 10 & 2 & 22 & -13.3 & 0.30859 \\
-sarvam & 7 & 3 & 19 & -6.7 & 1.00000 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Under sparse priming, Llama3 declines from 31/60 without retrieval to 16/60 with retrieval, with 20 correct-to-incorrect reversals and five recoveries. Its adjusted p-value is 0.04485. Without priming, its score declines from 28/60 to 15/60, with 18 reversals and five recoveries, but the adjusted p-value is 0.09560. Thus some large descriptive declines do not remain below 0.05 after correction across the selected family.
-
-Hex-1 under full priming declines from 36/60 to 28/60, with ten reversals and two recoveries; its adjusted p-value is 0.30859. Sarvam declines from 40/60 to 36/60, with seven reversals and three recoveries; its adjusted p-value is 1.00000. Sarvam instead shows a descriptive increase under sparse priming, from 28/60 to 33/60. Failure to detect an effect is not an equivalence finding, and the small sample does not support declaring these configurations safe.
+For Llama3 under full Kannada-script priming, retrieval changes accuracy from 36/60 to 14/60: 26 correct-to-incorrect reversals and four recoveries. The exact paired p-value is approximately 0.0000595 and Holm p = 0.00101. Labels change on 43 scenarios, including wrong-to-wrong changes. Its sparse-priming retrieval decline also passes correction (Holm p = 0.04485); its unprimed decline does not (0.09560). Full-priming retrieval declines for Hex-1 and Sarvam do not pass correction. Appendix A preserves all transition counts and tests. Neither a decline nor a nonsignificant contrast identifies factual intrusion, referral harm, or safety.
 
 \subsection{English and claims the archive cannot identify}
 
@@ -238,13 +197,40 @@ With an English gloss and retrieval, correct counts are 37/60 for Llama3, 52/60 
 
 The archive also lacks independent proposition labels for complaint fidelity, a validated referral destination, and user outcomes. Consequently, the results cannot establish what fraction of reversals arose from imported source facts, whether the explanations preserved the account, or whether any person was misdirected. They identify settings in which direct fidelity evaluation is warranted and delimit the inferences that classification data alone can support.
 
+\subsection{New generations: coverage, marker screening, and prompt comparison}
+
+All 384 scheduled calls completed: 308 produced valid structures and 76 reached the output-token limit with incomplete responses; there were no transport errors. Coverage varies across conditions, so apparent category differences combine label agreement and successful structure completion. The table reports the source-detail cells with explicit denominators; Appendix C includes all 24 cells, including no-context and relevant-context controls.
+\begin{table}[htbp]
+\caption{New source-detail conditions: correct categories / attempts and literal echoes / valid outputs. E: English; T: romanized Tulu; K: Kannada script; RD: relevant details; ID: irrelevant details; B: baseline; G: guard. Echoes are not expert intrusion labels.}
+\label{tab:new-main}
+\centering
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Query & Context & Correct B & Correct G & Echo B & Echo G \\
+\midrule
+E & RD & 8/16 & 7/16 & 11/16 & 5/12 \\
+E & ID & 3/16 & 4/16 & 2/15 & 3/10 \\
+T & RD & 4/16 & 4/16 & 7/16 & 3/16 \\
+T & ID & 0/16 & 0/16 & 7/15 & 6/16 \\
+K & RD & 1/16 & 2/16 & 1/9 & 2/9 \\
+K & ID & 0/16 & 0/16 & 1/7 & 1/11 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For English relevant-with-details, literal echoes occur in 11/16 valid baseline outputs and 5/12 valid guard outputs. Among the 12 pairs valid under both policies, four echo only at baseline and one only under the guard (guard-minus-baseline difference -25.0 percentage points; exact p = 0.375, Holm p = 1). Romanized relevant-with-details has five baseline-only and one guard-only echo among 16 pairs (exact p = 0.21875, Holm p = 1). English irrelevant-with-details instead has one baseline-only and three guard-only echoes among nine valid pairs. These mixed directions and selected denominators preclude a reliable reduction claim.
+
+Category results likewise do not show consistent guard improvement: English relevant context changes from 7/16 to 9/16 correct, romanized relevant context stays at 7/16, and Kannada-script relevant context changes from 4/16 to 0/16. None of the 12 category or six marker comparisons passes its separate Holm correction; every adjusted p-value is 1. Small samples, incomplete structures, and shared authored situations limit what these tests can detect. Nonsignificance does not establish equivalence.
+
+The fresh generations make the protocol's evidence boundary operational: category agreement, structured-output coverage, and literal source-marker presence yield different observations. They do not establish whether an assertion actually attributes a source fact to the complainant. No expert complaint-fidelity annotations, locally valid routing assessments, or observed assistance outcomes are available. The completed experiment is a development diagnostic, not independent validation of the framework or an estimate of harm prevalence.
+
 \section{A reusable protocol for complaint-fidelity evaluation}
 
 \subsection{Methodological contribution and evidentiary status}
 
 This protocol specifies the minimum evidence needed to make a complaint-fidelity claim. Its normative premise is that institutions should justify assertions attributed to an applicant and provide a way to repair unsupported ones. The protocol translates that premise into auditable units, controls, outcomes, and reporting requirements. It is a candidate method for cross-lingual administrative tools that interpret personal accounts using external documents, not a community-endorsed standard or an empirically validated instrument. Applying it beyond legal intake requires validating the relevant categories, languages, and institutional consequences anew.
 
-The controlled experiments and annotations below have not been executed. The completed contribution is the specification and its logical separation of claims; effectiveness, annotator reliability, and feasibility remain empirical questions. The archived 60 scenarios should serve as development material, not as held-out validation for a protocol designed after inspecting their outputs.
+The new experiment implements a restricted synthetic-context comparison and automated screening; the full independently annotated study specified below has not been executed. The completed contribution is the specification, its logical separation of claims, and this limited diagnostic; effectiveness, annotator reliability, and institutional feasibility remain empirical questions. The archived 60 scenarios should serve as development material, not as held-out validation for a protocol designed after inspecting their outputs.
 
 The primary question is whether conflicting but relevant context increases the fraction of outputs that attribute source-only personal facts to the current complaint. A second question is whether that context effect differs between independently validated Kannada-script and romanized Tulu. The latter requires estimating an interaction directly. One significant within-script effect and one nonsignificant effect would not establish that the effects differ.
 
@@ -318,33 +304,31 @@ The resulting responsibilities are concrete. Language reviewers assess the accou
 
 \section{Limitations and research validity}
 
-The completed evidence is a reanalysis of a small published pilot. The 60 authored scenarios do not represent the diversity of Tulu speakers, dialects, scripts, literacy practices, or experiences with legal services. Potential template dependence limits inference even when paired tests are appropriate for the observed records. Significance on this sample does not establish prevalence in a population, and a nonsignificant result does not establish equivalence or absence of harm.
+The completed evidence comprises a reanalysis of a small published pilot and new exploratory generations on a 16-case subset of its development material. The 60 authored scenarios do not represent the diversity of Tulu speakers, dialects, scripts, literacy practices, or experiences with legal services. Potential template dependence limits inference even when paired tests are appropriate for the observed records. Significance on this sample does not establish prevalence in a population, and a nonsignificant result does not establish equivalence or absence of harm.
 
 Linguistic equivalence and category validity remain independently unverified for this adaptation. Script contrasts can combine model sensitivity with representation defects, and full-priming contrasts include vocabulary overlapping the evaluation examples. The adapted taxonomy does not provide a locally validated account of legal-aid routing. These limitations affect the interpretation of correctness itself, not merely the number of decimal places in an accuracy score.
 
 The small retrieval corpus contains model-corrected extraction, identifiable information, and unresolved redistribution rights. Retrieved content is bundled with metadata and source labels in the archived conditions. Historical model settings and changing services further constrain reproducibility. The present analysis documents the supplied records but cannot reconstruct undocumented outputs or establish why one model changes its classification.
 
-The archive has no independently adjudicated complaint-fidelity labels or observed referral outcomes. It diagnoses a measurement gap without validating the proposed instrument. Worked examples assess conceptual separations, not annotator reliability or effectiveness. In particular, the protocol may miss omissions, mistranslated uncertainty, or consequences outside a chosen category system. Annotation reliability, intervention validity, institutional relevance, and cost require empirical testing. A synthetic-context experiment would improve control while introducing ecological-validity limits; natural-document and situated service evaluations are needed to assess transfer. The Tulu/Kannada case motivates the protocol, not its general applicability to every language or institution.
+The archive has no independently adjudicated complaint-fidelity labels or observed referral outcomes. It diagnoses a measurement gap without validating the proposed instrument. Worked examples assess conceptual separations, not annotator reliability or effectiveness. In particular, the protocol may miss omissions, mistranslated uncertainty, or consequences outside a chosen category system. Annotation reliability, intervention validity, institutional relevance, and cost require empirical testing. The new synthetic-context experiment improves some controls but uses only one 1.2B local model, one generation per cell, unvalidated representations, and English gloss-repeating contexts. Its 76 truncated outputs constrain scoring and induce selection in valid-pair marker comparisons. Literal screening cannot replace proposition-level judgment; context length, translation assistance, and semantic relevance remain entangled. Natural-document and situated service evaluations are needed to assess transfer. The Tulu/Kannada case motivates the protocol, not its general applicability to every language or institution.
 
-The source study is already published in the ORACLE 2026 proceedings \cite{prior}. This manuscript identifies reused evidence and does not claim that a new framing or statistical analysis alone satisfies FAccT's prior-publication requirements. The direct fidelity experiment is not yet executed. A future submission needs a genuinely distinct contribution, accurate overlap disclosure, and a complete assessment of eligibility; prose revision cannot substitute for those scientific requirements.
+The source study is already published in the ORACLE 2026 proceedings \cite{prior}. This manuscript identifies reused evidence and does not claim that a new framing or statistical analysis alone satisfies FAccT's prior-publication requirements. The independent, expert-annotated fidelity study is not yet executed; fresh exploratory generations alone do not resolve the overlap boundary. A future submission needs a genuinely distinct contribution, accurate overlap disclosure, and a complete assessment of eligibility; prose revision cannot substitute for those scientific requirements.
 
 \section{Conclusion}
 
-Cross-lingual legal intake must preserve the relationship between a person's account and the category or route produced from it. Retrieved legal context can help interpret a problem, but its personal facts remain facts about another case. We have formalized that boundary through complaint fidelity and separated it from primary-category reproduction and referral validity.
-
-The reanalysis diagnoses classification instability; it does not validate fidelity or resolve publication eligibility. The candidate protocol makes complaint evidence, external sources, and institutional actions separately inspectable. Its central question is whether the system can justify its account of the person and the institution can repair that account when it cannot.
+Complaint fidelity separates support for personal assertions from category agreement and locally valid referral. Archived classification instability and 384 new exploratory generations motivate this distinction without validating fidelity or resolving publication eligibility. The protocol asks whether systems can justify their account of the person and institutions can repair it. Independent annotations and situated evaluation remain necessary.
 
 \clearpage
 
 \section*{Ethical considerations and adverse impacts}
 
-The completed analysis uses authored scenarios and archived predictions rather than private legal-intake records. The underlying court corpus nevertheless contains personal information. Public availability does not settle privacy, consent, or redistribution rights. This manuscript does not reproduce named court excerpts; a public replication package should minimize identifying material, verify rights, and document extraction checks before release.
+The completed analysis uses authored scenarios, archived predictions, and new local generations with synthetic contexts rather than private legal-intake records. No real court documents were sent to the local model in the new experiment. The underlying court corpus nevertheless contains personal information. Public availability does not settle privacy, consent, or redistribution rights. This manuscript does not reproduce named court excerpts; a public replication package should minimize identifying material, verify rights, and document extraction checks before release.
 
 No new participant recruitment, community endorsement, independent legal review, or ethics approval is claimed. The proposed extension requires appropriate review, informed participation, compensation, and terms governing data use and release. Reviewers should be able to challenge the task and its categories rather than only correct outputs. Findings about particular systems must not be presented as deficits of a language, script, or community. The pilot does not support a deployable legal service, and presenting it as one could misdirect people seeking assistance.
 
 \section*{Generative AI usage statement}
 
-OpenAI Codex, a GPT-6-based assistant, supported the framework, full manuscript drafting and section revisions, literature checks, analysis code, and LaTeX preparation. Code was executed against archived predictions; no new model-inference results, expert labels, or participant observations were created for this manuscript. The source project reports Gemini-assisted correction of extracted legal documents; its precise model version and historical workflow require author verification. Human authors remain responsible for reviewing every claim, citation, analysis, and disclosure. Completion of that human review has not been asserted.
+OpenAI Codex, a GPT-6-based assistant, supported the framework, full manuscript drafting and section revisions, literature checks, analysis code, and LaTeX preparation. Code was executed against archived predictions, and assistant-supported code ran and analyzed 384 new local llama3.2:1b generations, with two earlier infrastructure smoke calls preserved separately. Generations are model outputs, not human judgments. No expert labels or participant observations were created for this manuscript. The source project reports Gemini-assisted correction of extracted legal documents; its precise model version and historical workflow require author verification. Human authors remain responsible for reviewing every claim, citation, analysis, and disclosure. Completion of that human review has not been asserted.
 
 \clearpage
 \bibliographystyle{ACM-Reference-Format}
@@ -355,6 +339,37 @@ OpenAI Codex, a GPT-6-based assistant, supported the framework, full manuscript 
 \section{complete exploratory paired comparisons}
 
 Each row compares the same 60 authored scenarios. The first three contrasts per model place Kannada script first and romanized Tulu second. The final three place retrieval first and no retrieval second, within Kannada script and a fixed priming tier. A-only and B-only count cases correct exclusively in that condition. Changes count all primary-label changes, including wrong-to-wrong transitions. Holm adjustment covers all 18 rows. These are exploratory reanalyses of the published pilot, not preregistered confirmation.
+\begin{table}[htbp]
+\caption{Conditions used in the selected paired comparisons.}
+\label{tab:conditions}
+\centering
+\begin{tabular}{@{}p{0.24\linewidth}p{0.34\linewidth}p{0.15\linewidth}p{0.11\linewidth}@{}}
+\toprule
+Code & Query representation & Priming & Retrieval \\
+\midrule
+G / H & Romanized / Kannada-script Tulu & None & No \\
+M\_sparse / E\_sparse & Romanized / Kannada-script Tulu & Sparse & No \\
+M\_full / E\_full & Romanized / Kannada-script Tulu & Full & No \\
+F & Kannada-script Tulu & None & Yes \\
+D\_sparse / D\_full & Kannada-script Tulu & Sparse / full & Yes \\
+A & English gloss & None & Yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[htbp]
+\caption{Full-priming Kannada-script retrieval contrasts. Reversals become incorrect; recoveries become correct.}
+\label{tab:reversals}
+\centering
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Model & Reversals & Recoveries & Label changes & Delta pp & Holm p \\
+\midrule
+llama3 & 26 & 4 & 43 & -36.7 & 0.00101 \\
+hex1 & 10 & 2 & 22 & -13.3 & 0.30859 \\
+sarvam & 7 & 3 & 19 & -6.7 & 1.00000 \\
+\bottomrule
+\end{tabular}
+\end{table}
 \begin{table}[htbp]
 \caption{All 18 selected paired comparisons. Positive differences favor condition A, the first condition in the pair.}
 \label{tab:all-pairs}
@@ -413,5 +428,82 @@ A portable report should contain a study identifier and evidentiary status; the 
 For every model and condition, record attempted cases, invalid outputs, substantive responses, escalations, confirmed intrusion, and unresolved labels. Report all-case intrusion and conditional intrusion among substantive responses together. An all-case estimate alone can reward silence; a conditional estimate alone can conceal excluded cases. Bound unresolved cases explicitly. Valid routes and correction outcomes remain null with status "not measured" until their respective evidence is collected; zero is reserved for an observed count of zero.
 
 The accompanying reporting template and annotation examples implement this specification as editable artifacts. Their fields document requirements, not completed observations. They are a candidate reporting convention for adaptation and challenge, not an endorsed standard, certification, or deployment authorization.
+
+\clearpage
+\section{new controlled-context experiment and complete results}
+
+\subsection{Reproducibility and scope}
+
+The main run uses scenario identifiers 6, 11, 16, 20, 23, 24, 29, 31, 32, 36, 39, 48, 49, 52, 54, and 58. Selection and scheduling use seed 20261030. The full installed-model SHA-256 digest is retained in the artifact metadata (prefix baf6a787fdff). Main inference ran October 30-31, 2026 UTC. The artifact retains all 384 payloads and raw responses, code and input hashes, structured answers, failures, and model metadata. The two earlier truncated smoke calls are excluded from the 384-call results and preserved separately. There are no hidden inference retries.
+
+Context codes N, R, RD, and ID mean none, relevant, relevant-with-details, and irrelevant-with-details. E, T, and K denote English gloss, romanized Tulu, and Kannada-script Tulu. B and G mean baseline and fidelity guard. Every condition attempts 16 cases. Correct counts require a complete valid structure and designated primary-label agreement; marker fractions use valid structured outputs only. Marker presence is a literal screen, not a source-attribution judgment. No expert fidelity or referral outcome is measured.
+\begin{table}[htbp]
+\caption{All 24 new conditions, with 16 attempts each. Correct counts include invalid outputs as errors.}
+\label{tab:new-all}
+\centering
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Query & Context & Policy & Valid & Correct & Echo / valid \\
+\midrule
+E & ID & B & 15 & 3 & 2/15 \\
+E & ID & G & 10 & 4 & 3/10 \\
+E & N & B & 14 & 7 & 0/14 \\
+E & N & G & 15 & 8 & 0/15 \\
+E & R & B & 15 & 7 & 0/15 \\
+E & R & G & 14 & 9 & 0/14 \\
+E & RD & B & 16 & 8 & 11/16 \\
+E & RD & G & 12 & 7 & 5/12 \\
+K & ID & B & 7 & 0 & 1/7 \\
+K & ID & G & 11 & 0 & 1/11 \\
+K & N & B & 10 & 0 & 0/10 \\
+K & N & G & 6 & 0 & 0/6 \\
+K & R & B & 12 & 4 & 0/12 \\
+K & R & G & 6 & 0 & 0/6 \\
+K & RD & B & 9 & 1 & 1/9 \\
+K & RD & G & 9 & 2 & 2/9 \\
+T & ID & B & 15 & 0 & 7/15 \\
+T & ID & G & 16 & 0 & 6/16 \\
+T & N & B & 16 & 2 & 0/16 \\
+T & N & G & 16 & 2 & 0/16 \\
+T & R & B & 16 & 7 & 0/16 \\
+T & R & G & 16 & 7 & 0/16 \\
+T & RD & B & 16 & 4 & 7/16 \\
+T & RD & G & 16 & 4 & 3/16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Complete exploratory policy contrasts}
+
+Differences are guard minus baseline. Category contrasts retain all attempts; marker contrasts retain valid pairs only. Baseline-only and guard-only refer to the named metric, so a marker-only count is not a correct-answer count. Separate Holm families cover 12 category and six marker tests. All are secondary post-generation analyses; independent scenario assumptions may fail under shared templates. These tests do not assess the full context-by-script interaction.
+\begin{table}[htbp]
+\caption{All 18 new paired policy comparisons, with separate multiplicity families by metric.}
+\label{tab:new-pairs}
+\centering
+\begin{tabular}{@{}p{0.03\linewidth}p{0.03\linewidth}p{0.11\linewidth}p{0.04\linewidth}p{0.06\linewidth}p{0.06\linewidth}p{0.09\linewidth}p{0.1\linewidth}p{0.08\linewidth}@{}}
+\toprule
+Q & C & Metric & n & B only & G only & Delta pp & Exact p & Holm p \\
+\midrule
+E & N & Category & 16 & 0 & 1 & +6.2 & 1.00000 & 1.00 \\
+E & R & Category & 16 & 0 & 2 & +12.5 & 0.50000 & 1.00 \\
+E & RD & Category & 16 & 2 & 1 & -6.2 & 1.00000 & 1.00 \\
+E & RD & Marker & 12 & 4 & 1 & -25.0 & 0.37500 & 1.00 \\
+E & ID & Category & 16 & 0 & 1 & +6.2 & 1.00000 & 1.00 \\
+E & ID & Marker & 9 & 1 & 3 & +22.2 & 0.62500 & 1.00 \\
+T & N & Category & 16 & 0 & 0 & +0.0 & 1.00000 & 1.00 \\
+T & R & Category & 16 & 0 & 0 & +0.0 & 1.00000 & 1.00 \\
+T & RD & Category & 16 & 1 & 1 & +0.0 & 1.00000 & 1.00 \\
+T & RD & Marker & 16 & 5 & 1 & -25.0 & 0.21875 & 1.00 \\
+T & ID & Category & 16 & 0 & 0 & +0.0 & 1.00000 & 1.00 \\
+T & ID & Marker & 15 & 3 & 2 & -6.7 & 1.00000 & 1.00 \\
+K & N & Category & 16 & 0 & 0 & +0.0 & 1.00000 & 1.00 \\
+K & R & Category & 16 & 4 & 0 & -25.0 & 0.12500 & 1.00 \\
+K & RD & Category & 16 & 0 & 1 & +6.2 & 1.00000 & 1.00 \\
+K & RD & Marker & 7 & 0 & 1 & +14.3 & 1.00000 & 1.00 \\
+K & ID & Category & 16 & 0 & 0 & +0.0 & 1.00000 & 1.00 \\
+K & ID & Marker & 7 & 1 & 0 & -14.3 & 1.00000 & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \end{document}

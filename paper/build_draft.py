@@ -31,8 +31,8 @@ def make_table(caption,headers,rows,widths=None,label=''):
 TABLES={}
 TABLES['TABLE_FRAMEWORK']=make_table('Evaluation layers and the evidence needed to assess them.',
  ['Layer','Audit question','Evidence in this paper'],[
- ['Category reproduction','Does the output match the designated primary label?','Completed on archived predictions; labels not independently validated.'],
- ['Complaint fidelity','Are assertions about this complaint supported by the account?','Operational definition and prospective annotation; no expert-labeled fidelity results.'],
+ ['Category reproduction','Does the output match the designated primary label?','Archived predictions and 384 new calls; labels not independently validated.'],
+ ['Complaint fidelity','Are assertions about this complaint supported by the account?','Protocol and literal-marker screen; no expert-labeled fidelity results.'],
  ['Referral validity','Is the next step appropriate for a specified service?','Institutional validation proposed; no observed referral outcomes.']],
  [.18,.32,.40],'tab:framework')
 TABLES['TABLE_CONDITIONS']=make_table('Conditions used in the selected paired comparisons.',
@@ -59,10 +59,28 @@ for m in MODELS:
 TABLES['TABLE_ALL_PAIRS']=make_table('All 18 selected paired comparisons. Positive differences favor condition A, the first condition in the pair.',
  ['Model','A vs B','A only','B only','Changes','Delta pp','Exact p','Holm p'],allpairs,
  [.08,.27,.06,.06,.07,.07,.10,.10],'tab:all-pairs')
+NEW=json.loads((ROOT/'experiments/runs/2026-10-30_local1b_v2/analysis.json').read_text())
+LOOK={(x['script'],x['context_condition'],x['policy']):x for x in NEW['summary']}
+SCRIPTS={'english':'E','romanized':'T','kannada':'K'}
+CONTEXTS={'none':'N','relevant':'R','relevant_source_details':'RD','irrelevant_source_details':'ID'}
+rows=[]
+for script in SCRIPTS:
+ for ctx in ['relevant_source_details','irrelevant_source_details']:
+  b=LOOK[script,ctx,'baseline'];g=LOOK[script,ctx,'fidelity_guard']
+  rows.append([SCRIPTS[script],CONTEXTS[ctx],f"{b['primary_correct_all_attempts']}/16",f"{g['primary_correct_all_attempts']}/16",f"{b['marker_echo_valid_outputs']}/{b['valid_outputs']}",f"{g['marker_echo_valid_outputs']}/{g['valid_outputs']}"])
+TABLES['TABLE_NEW_MAIN']=make_table('New source-detail conditions: correct categories / attempts and literal echoes / valid outputs. E: English; T: romanized Tulu; K: Kannada script; RD: relevant details; ID: irrelevant details; B: baseline; G: guard. Echoes are not expert intrusion labels.', ['Query','Context','Correct B','Correct G','Echo B','Echo G'],rows,label='tab:new-main')
+rows=[]
+for x in NEW['summary']:
+ rows.append([SCRIPTS[x['script']],CONTEXTS[x['context_condition']], 'B' if x['policy']=='baseline' else 'G',x['valid_outputs'],x['primary_correct_all_attempts'],f"{x['marker_echo_valid_outputs']}/{x['valid_outputs']}"])
+TABLES['TABLE_NEW_ALL']=make_table('All 24 new conditions, with 16 attempts each. Correct counts include invalid outputs as errors.', ['Query','Context','Policy','Valid','Correct','Echo / valid'],rows,label='tab:new-all')
+rows=[]
+for x in NEW['secondary_exploratory_pairs']:
+ rows.append([SCRIPTS[x['script']],CONTEXTS[x['context_condition']], 'Category' if x['metric']=='primary_correct' else 'Marker',x['paired_cases'],x['baseline_only'],x['guard_only'],f"{x['guard_minus_baseline_pp']:+.1f}",f"{x['p_exact']:.5f}",f"{x['p_holm_within_metric']:.2f}"])
+TABLES['TABLE_NEW_PAIRS']=make_table('All 18 new paired policy comparisons, with separate multiplicity families by metric.', ['Q','C','Metric','n','B only','G only','Delta pp','Exact p','Holm p'],rows,[.03,.03,.11,.04,.06,.06,.09,.10,.08],label='tab:new-pairs')
 def main():
     source=(ROOT/'paper/manuscript_source.md').read_text();blocks=re.split(r'\n\s*\n',source.strip())
     title=blocks[0].removeprefix('# ')
-    notice='Working manuscript. Existing model results are reused from the published ORACLE 2026 pilot. The proposed direct complaint-fidelity study is not yet executed; publication eligibility is unresolved for any future distinct submission.'
+    notice='Working manuscript. Published pilot predictions are reused and supplemented by 384 new exploratory local-model calls. Expert fidelity validation remains unexecuted; publication eligibility remains unresolved.'
     md=source
     for key,(mt,_) in TABLES.items():md=md.replace('['+key+']',mt)
     md=md.replace('[BIBLIOGRAPHY]','\n\n'.join(f'[{k}] {t} [Source]({u})' for k,(t,u) in REFS.items()))

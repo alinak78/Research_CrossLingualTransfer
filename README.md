@@ -47,6 +47,15 @@ The official abstract cutoff is **October 27, 2026 at 11:59 p.m. Anywhere on Ear
 
 ## Protocol implementation materials
 
-The current PDF has 14 main pages, one endmatter page, one reference page, and three appendix pages (19 total). Appendix B supplies five constructed examples and a reporting specification. Editable companion materials: [protocol examples](docs/PROTOCOL_EXAMPLES.md) and [reporting template](docs/protocol_reporting_template.json). Unmeasured fields remain null; these artifacts are not collected annotations or study results. The download ZIP includes the revised PDF, manuscript sources, audit code/results, and protocol materials.
+The current PDF has 14 main pages, one endmatter page, one reference page, and six appendix pages (22 total). Appendix B supplies five constructed examples and a reporting specification. Editable companion materials: [protocol examples](docs/PROTOCOL_EXAMPLES.md) and [reporting template](docs/protocol_reporting_template.json). Unmeasured fields remain null; these artifacts are not collected annotations or study results. The download ZIP includes the revised PDF, manuscript sources, audit code/results, and protocol materials.
 
 The latest revision adds an explicit architecture analogy, a capacity-based condition for withholding consequential automated routing, and multilingual disagreement fields. The main-text page limit remains satisfied; appendices remain separate from main content.
+
+
+## New model experiment: October 30, 2026
+
+A new exploratory local-model run is complete: **384 calls** on **16 reused development scenarios**, with English-gloss, romanized-Tulu, and Kannada-script queries; four fixed English synthetic-context conditions; and baseline versus fidelity-guard prompts. The installed model is `llama3.2:1b` (1.2B, Q8_0), not the original pilot's three models. There are **308 valid structured outputs and 76 token-limit truncations**. Two earlier truncated smoke-test calls are preserved separately.
+
+[Full experiment report](experiments/runs/2026-10-30_local1b_v2/EXPERIMENT_REPORT.md) · [Raw responses](experiments/runs/2026-10-30_local1b_v2/predictions.jsonl) · [Extracted answers](experiments/runs/2026-10-30_local1b_v2/answers.csv) · [Runner and reproduction instructions](experiments/README.md)
+
+The prompt guard does not consistently improve the descriptive category scores; none of the secondary paired comparisons passes Holm correction. Literal numeric-marker echo is a screening observation, not an expert factual-intrusion label. No new held-out corpus, native-speaker/legal validation, or expert annotation was produced. The manuscript now incorporates these outputs in its abstract, methods, results, limitations, AI disclosure, and Appendix C, while distinguishing automated screening from expert fidelity measurement. These new outputs do not by themselves establish FAccT novelty or eligibility.

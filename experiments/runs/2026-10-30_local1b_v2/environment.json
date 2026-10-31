@@ -1,0 +1,11 @@
+{
+  "python_version": "3.12.14",
+  "operating_system": "Darwin",
+  "architecture": "arm64",
+  "dependencies": "Python standard library only",
+  "inference_endpoint": "local Ollama server; loopback only",
+  "model_downloads": false,
+  "paid_api_calls": false,
+  "expert_annotations": false,
+  "paper_updated_with_results": true
+}

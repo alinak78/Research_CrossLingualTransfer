@@ -1,3 +1,13 @@
+## Current status: October 31, 2026 experiment integration
+
+This status supersedes earlier build counts and statements that no new model calls were made. The paper now incorporates 384 fresh local llama3.2:1b calls on 16 reused development scenarios in the abstract, introduction, methods, results, framework evidence table, limitations, conclusion, ethics, AI disclosure, and Appendix C. There are 308 valid structured outputs and 76 token-limit truncations. Two earlier smoke calls remain separate. No expert annotations, independent linguistic/legal validation, participant data, or referral outcomes were added. Automated literal-marker screening is not an expert intrusion measure; no secondary comparison passes its Holm correction. Publication eligibility remains unresolved.
+
+The compiled anonymous ACM PDF has 22 pages: main content 1-14, ethics/AI disclosure 15, references 16, Appendix A 17-18, Appendix B 19-20, and new Appendix C 21-22. All pages were rendered and visually inspected. No clipping, missing glyphs, undefined references, overfull boxes, unresolved table markers, identifying author metadata, or author-repository links were found. The final PDF matches the compiled file. The remaining acmart warning concerns the suppressed reference strip. The experiment packaging script verifies all 384 scheduled unique requests, raw-response payload hashes, 24 complete conditions, explicit denominators, and 18 secondary paired comparisons. Original inference inputs/responses are preserved. Nothing was submitted to OpenReview.
+
+---
+
+Historical notes and prospective requirements follow; their earlier experiment/page status is superseded above.
+
 # Final anonymity, page-budget, and registration check
 
 Checked October 27, 2026 against the compiled final PDF and source, plus the official FAccT 2027 CFP and Author Guide.

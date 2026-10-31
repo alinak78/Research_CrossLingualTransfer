@@ -1,0 +1,249 @@
+{
+  "generated_at": "2026-10-31T00:21:56.080698+00:00",
+  "planned_calls": 384,
+  "attempted_calls": 384,
+  "completed": true,
+  "summary": [
+    {
+      "script": "english",
+      "context_condition": "irrelevant_source_details",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 15,
+      "primary_correct": 3,
+      "marker_echo_in_complaint_facts": 2,
+      "marker_applicable": true
+    },
+    {
+      "script": "english",
+      "context_condition": "irrelevant_source_details",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 10,
+      "primary_correct": 4,
+      "marker_echo_in_complaint_facts": 3,
+      "marker_applicable": true
+    },
+    {
+      "script": "english",
+      "context_condition": "none",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 14,
+      "primary_correct": 7,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "english",
+      "context_condition": "none",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 15,
+      "primary_correct": 8,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "english",
+      "context_condition": "relevant",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 15,
+      "primary_correct": 7,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "english",
+      "context_condition": "relevant",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 14,
+      "primary_correct": 9,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "english",
+      "context_condition": "relevant_source_details",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 8,
+      "marker_echo_in_complaint_facts": 11,
+      "marker_applicable": true
+    },
+    {
+      "script": "english",
+      "context_condition": "relevant_source_details",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 12,
+      "primary_correct": 7,
+      "marker_echo_in_complaint_facts": 5,
+      "marker_applicable": true
+    },
+    {
+      "script": "kannada",
+      "context_condition": "irrelevant_source_details",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 7,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 1,
+      "marker_applicable": true
+    },
+    {
+      "script": "kannada",
+      "context_condition": "irrelevant_source_details",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 11,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 1,
+      "marker_applicable": true
+    },
+    {
+      "script": "kannada",
+      "context_condition": "none",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 10,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "kannada",
+      "context_condition": "none",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 6,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "kannada",
+      "context_condition": "relevant",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 12,
+      "primary_correct": 4,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "kannada",
+      "context_condition": "relevant",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 6,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "kannada",
+      "context_condition": "relevant_source_details",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 9,
+      "primary_correct": 1,
+      "marker_echo_in_complaint_facts": 1,
+      "marker_applicable": true
+    },
+    {
+      "script": "kannada",
+      "context_condition": "relevant_source_details",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 9,
+      "primary_correct": 2,
+      "marker_echo_in_complaint_facts": 2,
+      "marker_applicable": true
+    },
+    {
+      "script": "romanized",
+      "context_condition": "irrelevant_source_details",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 15,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 7,
+      "marker_applicable": true
+    },
+    {
+      "script": "romanized",
+      "context_condition": "irrelevant_source_details",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 6,
+      "marker_applicable": true
+    },
+    {
+      "script": "romanized",
+      "context_condition": "none",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 2,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "romanized",
+      "context_condition": "none",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 2,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "romanized",
+      "context_condition": "relevant",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 7,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "romanized",
+      "context_condition": "relevant",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 7,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "romanized",
+      "context_condition": "relevant_source_details",
+      "policy": "baseline",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 4,
+      "marker_echo_in_complaint_facts": 7,
+      "marker_applicable": true
+    },
+    {
+      "script": "romanized",
+      "context_condition": "relevant_source_details",
+      "policy": "fidelity_guard",
+      "attempts": 16,
+      "valid_outputs": 16,
+      "primary_correct": 4,
+      "marker_echo_in_complaint_facts": 3,
+      "marker_applicable": true
+    }
+  ],
+  "critical_boundary": "Marker echo is syntactic screening, not expert factual-intrusion labeling. No expert annotations exist."
+}

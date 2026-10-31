@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-10-30T23:41:16.938345+00:00",
+  "planned_calls": 384,
+  "attempted_calls": 2,
+  "completed": false,
+  "summary": [
+    {
+      "script": "kannada",
+      "context_condition": "relevant",
+      "policy": "baseline",
+      "attempts": 1,
+      "valid_outputs": 0,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": false
+    },
+    {
+      "script": "kannada",
+      "context_condition": "relevant_source_details",
+      "policy": "baseline",
+      "attempts": 1,
+      "valid_outputs": 0,
+      "primary_correct": 0,
+      "marker_echo_in_complaint_facts": 0,
+      "marker_applicable": true
+    }
+  ],
+  "critical_boundary": "Marker echo is syntactic screening, not expert factual-intrusion labeling. No expert annotations exist."
+}
