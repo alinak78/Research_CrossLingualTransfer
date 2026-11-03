@@ -1,0 +1,1251 @@
+{
+  "status": "post-hoc descriptive sensitivity audit; no confirmatory inference",
+  "marker_bounds": [
+    {
+      "script": "english",
+      "context": "relevant_source_details",
+      "attempts_per_policy": 16,
+      "baseline_echo": 11,
+      "baseline_valid": 16,
+      "guard_echo": 5,
+      "guard_valid": 12,
+      "guard_minus_baseline_marker_bounds_pp": [
+        -37.5,
+        -12.5
+      ]
+    },
+    {
+      "script": "english",
+      "context": "irrelevant_source_details",
+      "attempts_per_policy": 16,
+      "baseline_echo": 2,
+      "baseline_valid": 15,
+      "guard_echo": 3,
+      "guard_valid": 10,
+      "guard_minus_baseline_marker_bounds_pp": [
+        0.0,
+        43.75
+      ]
+    },
+    {
+      "script": "romanized",
+      "context": "relevant_source_details",
+      "attempts_per_policy": 16,
+      "baseline_echo": 7,
+      "baseline_valid": 16,
+      "guard_echo": 3,
+      "guard_valid": 16,
+      "guard_minus_baseline_marker_bounds_pp": [
+        -25.0,
+        -25.0
+      ]
+    },
+    {
+      "script": "romanized",
+      "context": "irrelevant_source_details",
+      "attempts_per_policy": 16,
+      "baseline_echo": 7,
+      "baseline_valid": 15,
+      "guard_echo": 6,
+      "guard_valid": 16,
+      "guard_minus_baseline_marker_bounds_pp": [
+        -12.5,
+        -6.25
+      ]
+    },
+    {
+      "script": "kannada",
+      "context": "relevant_source_details",
+      "attempts_per_policy": 16,
+      "baseline_echo": 1,
+      "baseline_valid": 9,
+      "guard_echo": 2,
+      "guard_valid": 9,
+      "guard_minus_baseline_marker_bounds_pp": [
+        -37.5,
+        50.0
+      ]
+    },
+    {
+      "script": "kannada",
+      "context": "irrelevant_source_details",
+      "attempts_per_policy": 16,
+      "baseline_echo": 1,
+      "baseline_valid": 7,
+      "guard_echo": 1,
+      "guard_valid": 11,
+      "guard_minus_baseline_marker_bounds_pp": [
+        -56.25,
+        31.25
+      ]
+    }
+  ],
+  "failure_counts": [
+    {
+      "script": "english",
+      "policy": "baseline",
+      "invalid": 4,
+      "attempts": 64
+    },
+    {
+      "script": "english",
+      "policy": "fidelity_guard",
+      "invalid": 13,
+      "attempts": 64
+    },
+    {
+      "script": "romanized",
+      "policy": "baseline",
+      "invalid": 1,
+      "attempts": 64
+    },
+    {
+      "script": "romanized",
+      "policy": "fidelity_guard",
+      "invalid": 0,
+      "attempts": 64
+    },
+    {
+      "script": "kannada",
+      "policy": "baseline",
+      "invalid": 26,
+      "attempts": 64
+    },
+    {
+      "script": "kannada",
+      "policy": "fidelity_guard",
+      "invalid": 32,
+      "attempts": 64
+    }
+  ],
+  "category_leverage": [
+    {
+      "script": "english",
+      "context": "none",
+      "delta_pp": 6.25,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        6.666666666666667
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        7.142857142857143
+      ]
+    },
+    {
+      "script": "english",
+      "context": "relevant",
+      "delta_pp": 12.5,
+      "leave_one_scenario_out_range_pp": [
+        6.666666666666667,
+        13.333333333333334
+      ],
+      "leave_one_category_out_range_pp": [
+        7.142857142857143,
+        14.285714285714286
+      ]
+    },
+    {
+      "script": "english",
+      "context": "relevant_source_details",
+      "delta_pp": -6.25,
+      "leave_one_scenario_out_range_pp": [
+        -13.333333333333334,
+        0.0
+      ],
+      "leave_one_category_out_range_pp": [
+        -14.285714285714286,
+        0.0
+      ]
+    },
+    {
+      "script": "english",
+      "context": "irrelevant_source_details",
+      "delta_pp": 6.25,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        6.666666666666667
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        7.142857142857143
+      ]
+    },
+    {
+      "script": "romanized",
+      "context": "none",
+      "delta_pp": 0.0,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        0.0
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "script": "romanized",
+      "context": "relevant",
+      "delta_pp": 0.0,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        0.0
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "script": "romanized",
+      "context": "relevant_source_details",
+      "delta_pp": 0.0,
+      "leave_one_scenario_out_range_pp": [
+        -6.666666666666667,
+        6.666666666666667
+      ],
+      "leave_one_category_out_range_pp": [
+        -7.142857142857143,
+        7.142857142857143
+      ]
+    },
+    {
+      "script": "romanized",
+      "context": "irrelevant_source_details",
+      "delta_pp": 0.0,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        0.0
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "script": "kannada",
+      "context": "none",
+      "delta_pp": 0.0,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        0.0
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "script": "kannada",
+      "context": "relevant",
+      "delta_pp": -25.0,
+      "leave_one_scenario_out_range_pp": [
+        -26.666666666666668,
+        -20.0
+      ],
+      "leave_one_category_out_range_pp": [
+        -28.571428571428573,
+        -14.285714285714286
+      ]
+    },
+    {
+      "script": "kannada",
+      "context": "relevant_source_details",
+      "delta_pp": 6.25,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        6.666666666666667
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        7.142857142857143
+      ]
+    },
+    {
+      "script": "kannada",
+      "context": "irrelevant_source_details",
+      "delta_pp": 0.0,
+      "leave_one_scenario_out_range_pp": [
+        0.0,
+        0.0
+      ],
+      "leave_one_category_out_range_pp": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "archive_lexical_stress_test": [
+    {
+      "jaccard_threshold": 0.3,
+      "components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          36
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          40
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          14,
+          48,
+          50
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17,
+          37
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          49
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ]
+      ],
+      "n_components": 54,
+      "largest_component": 3,
+      "equal_component_weight_delta_pp": -37.03703703703704,
+      "leave_one_component_out_delta_range_pp": [
+        -38.983050847457626,
+        -34.48275862068966
+      ]
+    },
+    {
+      "jaccard_threshold": 0.4,
+      "components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17,
+          37
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ]
+      ],
+      "n_components": 59,
+      "largest_component": 2,
+      "equal_component_weight_delta_pp": -37.28813559322034,
+      "leave_one_component_out_delta_range_pp": [
+        -38.983050847457626,
+        -35.59322033898305
+      ]
+    },
+    {
+      "jaccard_threshold": 0.5,
+      "components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ]
+      ],
+      "n_components": 60,
+      "largest_component": 1,
+      "equal_component_weight_delta_pp": -36.666666666666664,
+      "leave_one_component_out_delta_range_pp": [
+        -38.983050847457626,
+        -35.59322033898305
+      ]
+    },
+    {
+      "jaccard_threshold": 0.7,
+      "components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ]
+      ],
+      "n_components": 60,
+      "largest_component": 1,
+      "equal_component_weight_delta_pp": -36.666666666666664,
+      "leave_one_component_out_delta_range_pp": [
+        -38.983050847457626,
+        -35.59322033898305
+      ]
+    },
+    {
+      "jaccard_threshold": 1.0,
+      "components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ]
+      ],
+      "n_components": 60,
+      "largest_component": 1,
+      "equal_component_weight_delta_pp": -36.666666666666664,
+      "leave_one_component_out_delta_range_pp": [
+        -38.983050847457626,
+        -35.59322033898305
+      ]
+    }
+  ],
+  "corpus_provenance": {
+    "source_file": "kannada_legal_corpus_list.jsonl",
+    "sha256": "cc182c88cc5725df2bb17805cf39e053eee90b4aa0c02ddb2b46fa3e20e6b3ad",
+    "record_count": 18,
+    "extraction_verification": "not independently verified; source reports model-assisted correction",
+    "personal_information": "known risk; not copied into this audit",
+    "redistribution_rights": "unresolved; corpus excluded from public package",
+    "new_local_experiment_uses_corpus": false,
+    "release_gate": "Do not distribute court text until rights, redaction, and extraction checks are completed."
+  },
+  "demographics": {
+    "observed_speaker_demographics": null,
+    "participant_count": 0,
+    "authored_scenarios": 60,
+    "new_experiment_reused_scenarios": 16,
+    "dialect_literacy_and_service_experience": "not collected; do not infer from text"
+  },
+  "inputs": {
+    "Research_CrossLingualTransfer/experiments/runs/2026-10-30_local1b_v2/predictions.jsonl": "18b3572499da1f363eabb1eb8cfbeff20ae3bc3091911920f54ed54a7613e912",
+    "Research_CrossLingualTransfer/experiments/runs/2026-10-30_local1b_v2/schedule.jsonl": "ec91d3efa1c02b507e29709e7405c9989a69c9fdccc93bf713ebc9dff13471b2",
+    "Research_CrossLingualTransfer/experiments/runs/2026-10-30_local1b_v2/answers.csv": "bcd23314a67f53e4b22bebaffab41c50047e46cdcc52e84c2c0d7490b067243c",
+    "Research-TuluLegalRAG/data/tulu_legal_60_consolidated.jsonl": "8b5a54bc6f651c17e6fa78f2151e09955d62fb830b19a1f75b0681211d7bb585"
+  },
+  "code_sha256": "d6eed78a4f90a2435af3ad2baecd2b6232ff7282677c44d02fee1fa844728603"
+}

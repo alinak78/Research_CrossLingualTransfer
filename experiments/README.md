@@ -44,3 +44,7 @@ After completion, `EXPERIMENT_REPORT.md` and `RESULTS.md` contain the canonical 
 The v2 run completed all 384 planned calls: 308 valid structured outputs and 76 token-limit truncations. There were no transport failures. All 24 condition cells contain 16 attempts. None of the secondary paired comparisons passes its Holm correction. See `runs/2026-10-30_local1b_v2/EXPERIMENT_REPORT.md` for the full table, per-condition validity, marker denominators, and limitations.
 
 The exact captured model metadata is preserved privately under the repository's ignored `tmp/` directory. The shareable metadata replaces local home-directory names only, retains model digest/template/parameters, and records a hash of the exact capture. Model responses and prompts are unchanged. Run `python3 experiments/package_completed.py` only after completion to verify and package the artifacts.
+
+## Offline robustness audit
+
+Run `python3 experiments/robustness_audit.py` from the repository root. It reads existing responses and source scenarios, produces `analysis/robustness.json` and `analysis/ROBUSTNESS.md`, and makes no inference calls. It adds all-attempt missing-marker bounds, completion counts, category-score leverage and deterministic lexical grouping stress tests; none is expert annotation or demographic validation. The completed-package command now reruns this audit and includes its outputs.

@@ -77,6 +77,17 @@ rows=[]
 for x in NEW['secondary_exploratory_pairs']:
  rows.append([SCRIPTS[x['script']],CONTEXTS[x['context_condition']], 'Category' if x['metric']=='primary_correct' else 'Marker',x['paired_cases'],x['baseline_only'],x['guard_only'],f"{x['guard_minus_baseline_pp']:+.1f}",f"{x['p_exact']:.5f}",f"{x['p_holm_within_metric']:.2f}"])
 TABLES['TABLE_NEW_PAIRS']=make_table('All 18 new paired policy comparisons, with separate multiplicity families by metric.', ['Q','C','Metric','n','B only','G only','Delta pp','Exact p','Holm p'],rows,[.03,.03,.11,.04,.06,.06,.09,.10,.08],label='tab:new-pairs')
+ROBUST=json.loads((ROOT/'analysis/robustness.json').read_text())
+rows=[]
+for x in ROBUST['marker_bounds']:
+ lo,hi=x['guard_minus_baseline_marker_bounds_pp']
+ rows.append([SCRIPTS[x['script']],CONTEXTS[x['context']],f"{x['baseline_echo']}/{x['baseline_valid']}",f"{x['guard_echo']}/{x['guard_valid']}",f"[{lo:+.2f}, {hi:+.2f}]"])
+TABLES['TABLE_MISSING_BOUNDS']=make_table('Literal-marker difference bounds over all 16 attempts per policy. Valid-output echo fractions are descriptive; bounds permit either outcome for every missing observation. Codes follow Appendix C.', ['Query','Context','Echo B / valid','Echo G / valid','Difference bound pp'],rows,label='tab:missing-bounds')
+rows=[]
+for x in ROBUST['archive_lexical_stress_test']:
+ lo,hi=x['leave_one_component_out_delta_range_pp']
+ rows.append([x['jaccard_threshold'],x['n_components'],x['largest_component'],f"{x['equal_component_weight_delta_pp']:+.2f}",f"[{lo:+.2f}, {hi:+.2f}]"])
+TABLES['TABLE_LEXICAL_STRESS']=make_table('Post-hoc lexical grouping of the 60 archived scenarios: Llama3 retrieval minus no retrieval under full Kannada-script priming. Groups are stress tests, not validated templates.', ['Threshold','Groups','Largest','Group-weighted pp','Omission range pp'],rows,label='tab:lexical-stress')
 def main():
     source=(ROOT/'paper/manuscript_source.md').read_text();blocks=re.split(r'\n\s*\n',source.strip())
     title=blocks[0].removeprefix('# ')

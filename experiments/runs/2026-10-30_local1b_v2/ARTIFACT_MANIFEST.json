@@ -1,9 +1,10 @@
 {
   "experiments/INTERPRETATION.md": "38016d7d5d602a4660796166e6b76f916367f0a69fa25807e89c3c4778d4eee5",
-  "experiments/README.md": "935fb95affeee41edbf4d653d34f3ba77f610294a1687df4ee4c56673681a98d",
+  "experiments/README.md": "df259fdde892c5f573237ffde8b6cdfd8a6af214ed7be22e259f74a9f5eba915",
   "experiments/analyze_controlled.py": "25f98f9458c4d80c6bc5a479d8d356ab8de091a1e3510b684b24053329bd7d66",
   "experiments/controlled_context.py": "e02d3b32df39c0bf7eac3f3eb8cb1914557b541fa3c4c58bef5406bd9babe924",
-  "experiments/package_completed.py": "6d9f655c2f5bf894fbb0e848349b577b9463bf95530b09691a6b65ac59124407",
+  "experiments/package_completed.py": "5513d42d8e78983121917263ed8f277888d32e19245d4e4efe3a777435a6c6d2",
+  "experiments/robustness_audit.py": "d6eed78a4f90a2435af3ad2baecd2b6232ff7282677c44d02fee1fa844728603",
   "experiments/runs/2026-10-30_local1b_v1/summary.json": "c89879b2742c2bed11dfab1e21a351d45d741d5cee8aa3cc2a8bc76898bde5c1",
   "experiments/runs/2026-10-30_local1b_v1/model_metadata.json": "94dce67c74924d626f8a845aac31a41808cb29cb5d34937fdb8cc90b86161bfd",
   "experiments/runs/2026-10-30_local1b_v1/predictions.jsonl": "3ee9436c40d9d11606e3d795e003f1308c89c509db1c790587a9258e3eccfa85",
@@ -21,5 +22,8 @@
   "experiments/runs/2026-10-30_local1b_v2/RESULTS.md": "3a90084d368f127cfa92bb9430074f84632c504f2a5d883c2da6b31fd8164c58",
   "experiments/runs/2026-10-30_local1b_v2/analysis.json": "b0c09625165b6c329c46762f2a3f10ede4a55844b70b87f0d79110e017d9a795",
   "experiments/runs/2026-10-30_local1b_v2/environment.json": "688b5d08f9be3948bfd8c80d23b5524423d118e01645f7df83eb7d0bf29e35e1",
-  "experiments/runs/2026-10-30_local1b_v2/design.json": "858bfabff0f17c1b503fa7cb127071a65d1564547cabf601759eed65db0f79ef"
+  "experiments/runs/2026-10-30_local1b_v2/design.json": "858bfabff0f17c1b503fa7cb127071a65d1564547cabf601759eed65db0f79ef",
+  "analysis/ROBUSTNESS.md": "c59628037abdd18825c26ff7b14a733f68ce139b8c96340f8d15991992294902",
+  "analysis/robustness.json": "ec6e972742f1faadc1a395feca3613f1e8f9b749bbfebf3c1788c0b8761b166e",
+  "docs/LIMITATION_MITIGATIONS.md": "2837a1b34516d4c726d21e01d620caa02c4603e07bdec7a7e1e81ee9760c49b6"
 }

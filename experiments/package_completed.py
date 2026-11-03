@@ -38,6 +38,7 @@ def main():
         public=clean(obj);public['local_path_redaction']={'change':'Local home-directory names replaced only; model digest, template, parameters and response data unchanged.','exact_capture_sha256':sha(original),'exact_capture_preserved_locally':True}
         path.write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')
     subprocess.run([sys.executable,str(ROOT/'experiments/analyze_controlled.py'),str(RUN)],check=True)
+    subprocess.run([sys.executable,str(ROOT/'experiments/robustness_audit.py')],check=True,stdout=subprocess.DEVNULL)
     report=json.loads((RUN/'analysis.json').read_text());assert report['status']=='completed'
     assert len(report['summary'])==24 and all(x['attempts']==16 for x in report['summary'])
     assert len(report['secondary_exploratory_pairs'])==18
@@ -45,6 +46,7 @@ def main():
     for p in report['secondary_exploratory_pairs']:
         if p['p_exact'] is not None:assert 0<=p['p_exact']<=p['p_holm_within_metric']<=1
     files=[p for p in (ROOT/'experiments').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.name!='ARTIFACT_MANIFEST.json']
+    files.extend([ROOT/'analysis/ROBUSTNESS.md',ROOT/'analysis/robustness.json',ROOT/'docs/LIMITATION_MITIGATIONS.md'])
     manifest={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in files}
     (RUN/'ARTIFACT_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
     files.append(RUN/'ARTIFACT_MANIFEST.json')
