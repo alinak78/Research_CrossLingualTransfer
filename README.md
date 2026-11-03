@@ -47,7 +47,7 @@ The official abstract cutoff is **October 27, 2026 at 11:59 p.m. Anywhere on Ear
 
 ## Protocol implementation materials
 
-The current PDF has 12 main pages, one endmatter page, one reference page, and seven appendix pages (21 total). Appendix B supplies five constructed examples and a reporting specification. Editable companion materials: [protocol examples](docs/PROTOCOL_EXAMPLES.md) and [reporting template](docs/protocol_reporting_template.json). Unmeasured fields remain null; these artifacts are not collected annotations or study results. The download ZIP includes the revised PDF, manuscript sources, audit code/results, and protocol materials.
+The current PDF has 13 main pages, one endmatter page, one reference page, and eight appendix pages (23 total). Appendix B supplies five constructed examples and a reporting specification. Editable companion materials: [protocol examples](docs/PROTOCOL_EXAMPLES.md) and [reporting template](docs/protocol_reporting_template.json). Unmeasured fields remain null; these artifacts are not collected annotations or study results. The download ZIP includes the revised PDF, manuscript sources, audit code/results, and protocol materials.
 
 The latest revision adds an explicit architecture analogy, a capacity-based condition for withholding consequential automated routing, and multilingual disagreement fields. The main-text page limit remains satisfied; appendices remain separate from main content.
 
@@ -67,3 +67,7 @@ The current paper adds all-attempt missing-marker bounds, completion breakdowns,
 ## Focused manuscript revision
 
 The current paper removes the historical benchmark tables, detailed script/priming comparisons and full historical statistical appendix from the PDF. Its research questions and main results now emphasize complaint fidelity, the 384 new generations, and institutional correction. Source-study attribution remains explicit; full historical audit files remain available. The latest PDF is 21 pages with 12 main pages. See [revision record](docs/FOCUSED_MANUSCRIPT_REVISION.md). This status supersedes earlier page counts above.
+
+## Governance and contribution revision
+
+The latest manuscript adds a proposed six-tag attribution typology, a five-stage institutional repair workflow, and Appendix E's interface/event specification. The protocol is an openly available candidate method rather than a validated standard. The reporting template is now candidate-2; observed annotation and recourse fields remain null. A separate [draft overlap disclosure](docs/COVER_LETTER_OVERLAP_DISCLOSURE.md) maps reused and additional material and includes a possible reviewer response; it has not been sent. See [revision record](docs/GOVERNANCE_REVISION.md). The checked PDF has 23 pages with 13 main pages; this supersedes earlier page counts. No new inference or expert annotation was performed in this revision.

@@ -7,7 +7,7 @@
 \title{Whose Facts Count? Complaint Fidelity and Language Equity in Cross-Lingual Legal Intake}
 \begin{document}
 \begin{abstract}
-This paper develops a normative and methodological framework for evaluating cross-lingual legal intake. It separates category reproduction, complaint fidelity, and locally appropriate referral, and assigns institutions responsibility for repairing unsupported personal attributions. Earlier Tulu/Kannada classification findings motivate the distinction; the methodological contribution concerns support for personal assertions and institutional correction. A new exploratory experiment partially instantiates the protocol: 384 local-model calls cross 16 reused development scenarios, three query representations, four English synthetic-context conditions, and two prompting policies. Of these, 308 yield valid structured outputs and 76 truncate. Literal source-marker echoes occur in structured complaint-fact fields, but automated screening does not establish factual intrusion. The prompt guard does not consistently improve category reproduction, and none of the secondary paired comparisons passes Holm correction. English contexts repeat scenario glosses and can act as oracle translation scaffolds; the experiment does not evaluate natural retrieval or independently validated Tulu understanding. The primary contribution remains an evidentiary boundary and reusable evaluation protocol, with worked attribution examples and institutional capacity as a precondition for consequential automation. A post-hoc audit adds missing-output bounds, case/category omission checks, and lexical-dependence stress tests. Expert proposition annotations, linguistic validation, and referral outcomes remain absent; these diagnostics do not validate the framework.
+This paper develops a normative and methodological framework for evaluating cross-lingual legal intake. It separates category reproduction, complaint fidelity, and locally appropriate referral, and assigns institutions responsibility for repairing unsupported personal attributions. Earlier Tulu/Kannada classification findings motivate the distinction; the methodological contribution concerns support for personal assertions and institutional correction. A new exploratory experiment partially instantiates the protocol: 384 local-model calls cross 16 reused development scenarios, three query representations, four English synthetic-context conditions, and two prompting policies. Of these, 308 yield valid structured outputs and 76 truncate. Literal source-marker echoes occur in structured complaint-fact fields, but automated screening does not establish factual intrusion. The prompt guard does not consistently improve category reproduction, and none of the secondary paired comparisons passes Holm correction. English contexts repeat scenario glosses and can act as oracle translation scaffolds; the experiment does not evaluate natural retrieval or independently validated Tulu understanding. The primary contribution is an evidentiary boundary, proposed attribution typology, and reusable protocol linked to an institutional repair workflow; these are candidate methods and design requirements, not validated interventions. A post-hoc audit adds missing-output bounds, case/category omission checks, and lexical-dependence stress tests. Expert proposition annotations, linguistic validation, and referral outcomes remain absent; these diagnostics do not validate the framework.
 \end{abstract}
 \ccsdesc[500]{Computing methodologies~Natural language processing}
 \ccsdesc[300]{Social and professional topics~Computing / technology policy}
@@ -25,7 +25,7 @@ We call the preservation of that boundary complaint fidelity. The term concerns 
 
 Our position is that category accuracy alone is insufficient for evaluating equitable legal intake. A label can match a reference category even when the explanation invents facts. A label can differ from a benchmark and still be an acceptable route in a particular service. An abstaining system can avoid an unsupported assertion while leaving the person without help. These outcomes involve different mechanisms and responsibilities. Combining them into a single accuracy score obscures both the limits of the evidence and the decisions required of a receiving institution.
 
-Shetty and colleagues studied script, linguistic priming, and retrieval on authored Tulu legal scenarios \cite{prior}. Their classification findings and examples of fact substitution motivate our question, but they do not measure complaint fidelity or observed referral outcomes. We reuse their development scenarios for a new, explicitly exploratory diagnostic and retain attribution to the source study.
+Shetty and colleagues evaluated category prediction under script, priming, and retrieval interventions and identified fact substitution \cite{prior}. Our central question is one of sociotechnical governance: what authorizes a personal assertion, and who bears responsibility for repairing it? The object is the institutionally usable account, not a higher leaderboard score. We reuse their development scenarios for an exploratory diagnostic; their classification findings motivate the question without measuring complaint fidelity or referral outcomes.
 
 The paper addresses three questions. RQ1: What evidence should authorize an assertion about a complainant, separately from category agreement? RQ2: What do controlled-context generations and missing-output sensitivity reveal about the limits of automated attribution screening? RQ3: What validation and institutional correction responsibilities should a complaint-fidelity evaluation require?
 
@@ -75,9 +75,7 @@ Magesh and colleagues evaluate reliability failures in commercial legal research
 
 \subsection{Relationship to the published Tulu study}
 
-Shetty and colleagues already reported script-dependent classification, mixed retrieval effects, and examples characterized as fact substitution or confabulation in this setting \cite{prior}. This paper retains those observations as prior evidence. It changes the object of evaluation from general cross-lingual comprehension to a set of observable relationships between complaint, context, output, and potential route. The additional paired accounting improves the description of the archived experiment; it is not an independent replication or a demonstration that the proposed fidelity audit has succeeded.
-
-The proposed unit is an attributed proposition; the institutional question is who repairs an unsupported account and its downstream route. Renaming a failure mode or correcting a p-value does not establish novelty. Prior-publication eligibility remains a separate question.
+Shetty and colleagues reported script-dependent classification, mixed retrieval effects, and fact substitution or confabulation \cite{prior}. We retain those findings as motivation. The present proposal evaluates attributed propositions and institutional repair, rather than claiming those failure observations as new. Supplementary archived comparisons are not independent replication or fidelity validation.
 
 \section{A complaint-fidelity framework}
 
@@ -110,6 +108,29 @@ Let a complaint, a retrieved context, and a model output be considered together.
 For illustration, imagine an authored complaint stating only that an employer withheld wages. A retrieved vignette concerns an unrelated employee dismissed after an absence. If the output states that the current complainant was dismissed for absence, it has imported a source fact. If it instead says that the retrieved vignette involves dismissal while the current complaint concerns unpaid wages, it has preserved attribution. This example is a methodological illustration created for the framework, not an observed model output or a legal determination.
 
 The framework does not require a claim about internal knowledge conflict. The observable failure is an unsupported attribution, whatever combination of parsing, instruction following, retrieval, or generation produced it. This avoids treating a fluent generated rationale as reliable evidence of the model's reasoning process. A causal claim about why attribution changes requires controlled interventions and cannot be established from one explanation.
+
+\subsection{Proposed typology of attribution errors}
+
+We separate what a proposition changes from where its support originates. Support labels remain complaint-supported, source-only, unsupported by both, ambiguous, or outside current-complaint attribution. The typology below adds nonexclusive content tags; it does not replace those labels. All examples are constructed, not findings from the 384 generations.
+\begin{table}[htbp]
+\caption{Proposed nonexclusive content tags for attribution audit. Examples are hypothetical unsupported assertions, not observed outputs or statements of law.}
+\label{tab:typology}
+\centering
+\begin{tabular}{@{}p{0.16\linewidth}p{0.42\linewidth}p{0.32\linewidth}@{}}
+\toprule
+Content tag & Constructed change to the account & Boundary to check \\
+\midrule
+Actor & An unnamed employer becomes the named defendant in a source case. & Whose action or identity is asserted? \\
+Event / relationship & A wage complaint becomes dismissal after an absence. & Is this event or relation in the account? \\
+Time / procedure & A source case filing date becomes the speaker's filing date. & Distinguish a source timeline from this case. \\
+Amount / place & A source award or location becomes the speaker's loss or residence. & Do not transfer amounts or places. \\
+Legal status & A source party's employment status is assigned to the speaker. & Separate factual premise from legal applicability. \\
+Modality & A possible event becomes an established assertion. & Preserve uncertainty, negation, and questions. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A source-only assertion about the current person can receive several content tags. A correctly attributed source summary, genuine clarification question, or general legal rule does not become intrusion merely by mentioning the same topic. Applying a doctrine to the person can instead require legal judgment even when its factual premise is complaint-supported; that question remains separate from fidelity. Omitted complaint facts are another dimension not covered by this intrusion typology. Independent multilingual application must test tag coverage, disagreements, and utility before reporting frequencies or claiming reliability.
 
 \subsection{Language equity as a conditional evaluation target}
 
@@ -170,15 +191,19 @@ For English relevant-with-details, echoes occur in 11/16 valid baseline outputs 
 
 No secondary category or valid-pair marker contrast passes its separate Holm correction; all adjusted p-values are 1. Category effects remain mixed. Omitting any one category leaves the Kannada relevant-context guard-minus-baseline score between -28.6 and -14.3 points, while its relevant-with-details difference spans 0 to +7.1 points. These post-hoc leverage checks do not establish independence. For the archive, equal-weight lexical-group versions of the Llama3 full-priming retrieval decline range from -37.3 to -36.7 points across the tested thresholds; no cluster-based significance claim is made.
 
+The sensitivity audits test how fragile screening summaries are to incomplete outputs and scenario weighting. They do not repair missing responses or establish independence. Reporting all bounds and perturbations exposes assumptions that a single valid-output score hides.
+
 The fresh generations make the protocol's evidence boundary operational: category agreement, structured-output coverage, and literal source-marker presence yield different observations. They do not establish whether an assertion actually attributes a source fact to the complainant. No expert complaint-fidelity annotations, locally valid routing assessments, or observed assistance outcomes are available. The completed experiment is a development diagnostic, not independent validation of the framework or an estimate of harm prevalence.
 
 \section{A reusable protocol for complaint-fidelity evaluation}
 
 \subsection{Methodological contribution and evidentiary status}
 
-This protocol specifies the minimum evidence needed to make a complaint-fidelity claim. Its normative premise is that institutions should justify assertions attributed to an applicant and provide a way to repair unsupported ones. The protocol translates that premise into auditable units, controls, outcomes, and reporting requirements. It is a candidate method for cross-lingual administrative tools that interpret personal accounts using external documents, not a community-endorsed standard or an empirically validated instrument. Applying it beyond legal intake requires validating the relevant categories, languages, and institutional consequences anew.
+The protocol translates institutional responsibility for justified personal assertions into auditable units, controls, outcomes, and repair requirements. It is a candidate method for administrative tools that interpret accounts using external documents. It is neither community-endorsed nor empirically validated; categories, language representations, and consequences require local review.
 
-The new experiment implements a restricted synthetic-context comparison and automated screening; the full independently annotated study specified below has not been executed. The completed contribution is the specification, its logical separation of claims, and this limited diagnostic; effectiveness, annotator reliability, and institutional feasibility remain empirical questions. The archived 60 scenarios should serve as development material, not as held-out validation for a protocol designed after inspecting their outputs.
+The specification and editable reporting artifacts are openly available as a candidate design tool for other administrative settings where institutional documents inform personal accounts, such as benefits intake. Transfer requires new language, category, and action validation; neither generalizability nor community endorsement follows from releasing code. We call this a reusable candidate protocol, not an established evaluation standard.
+
+The new experiment implements only synthetic-context comparisons and screening. The full independently annotated study remains unexecuted; effectiveness, reliability, and feasibility are empirical questions. The reused scenarios remain development material because the protocol follows inspection of their outputs.
 
 The primary question is whether conflicting but relevant context increases the fraction of outputs that attribute source-only personal facts to the current complaint. A second question is whether that context effect differs between independently validated Kannada-script and romanized Tulu. The latter requires estimating an interaction directly. One significant within-script effect and one nonsignificant effect would not establish that the effects differ.
 
@@ -237,6 +262,14 @@ We propose assigning repair responsibility to the receiving institution: preserv
 Recourse evaluation should distinguish time to detect, acknowledge, correct, and propagate a correction, including translation and repeated explanation. The institution should name the owner of each step and verify downstream receipt; report unresolved cases and who bears each cost. Establishing these outcomes requires appropriately reviewed institutional or participant research.
 
 These responsibilities are preconditions for consequential automation, not a demand that services absorb unlimited verification work. In a resource-constrained organization, interpretation, review, and follow-through compete with direct assistance. The capacity check should identify funded staff, language support, ownership, and escalation limits before model outputs control routing. If these cannot be provided, the proposed system should be withheld from that consequential role, preserving access through an existing non-automated route where available. A model's lower processing cost does not establish that the full service is affordable. Because our pilot studies no organization, this is a normative feasibility test, not an observed description of legal-aid staffing or a cost estimate.
+
+\subsection{Proposed institutional repair workflow}
+
+We operationalize institutional responsibility as five stages, with explicit owners and exit conditions. This is a normative workflow specification; no institution has implemented or evaluated it here.
+
+Stage 1, intake staff preserve a versioned original account and record language preferences under a defined access and retention policy. Stage 2, the interface separates that account, model assertions, and external context. Each asserted personal fact points to a complaint span or remains visibly unsupported; a model-generated support link is unverified until checked. Stage 3, unsupported or contested assertions place consequential routing on hold and enter a staffed review queue with an assigned owner. The speaker can request correction or decline automation without diagnosing the model.
+
+Stage 4, language-competent staff resolve intended meaning with the speaker, while qualified service staff separately assess the route. They record unresolved disagreement and revised assertions rather than replacing the original account. Stage 5, the institution sends versioned corrections to affected destinations, verifies receipt, and communicates the outcome in an accessible form. A case closes only after required correction checks succeed or is recorded as unresolved. Queue delay and loss of assistance remain reportable costs. Without funded review capacity, consequential automated routing is withheld. Appendix E supplies a proposed interface and event record; neither is a tested deployment.
 
 \subsection{Why simple fallback rules are insufficient}
 
@@ -449,5 +482,33 @@ Group-weighted differences give each component equal weight after averaging its 
 The corpus inventory retains a file hash and record count without redistributing court text, names, or case narratives. Extraction fidelity, redaction adequacy, and redistribution rights remain unverified; the inventory is not a rights clearance. The new local experiment uses synthetic English contexts rather than this corpus. Pinned model metadata and raw responses support auditing the local run, while undocumented historical configurations remain unreconstructed.
 
 Neither the 60 authored cases nor the selected 16 represent participant samples. Speaker demographics, dialect, literacy, and service experience were not collected and cannot be inferred from category balance or script coverage. Independent reviewers have not established translation equivalence, complaint support, acceptable labels, or valid routes. Consequently, this paper makes a methodological proposal with exploratory diagnostics, not a validated multilingual instrument, demographic fairness evaluation, or deployment recommendation. Addressing these remaining gaps requires additional evidence rather than relabeling automatic checks as expert review.
+
+\clearpage
+\section{proposed interface and institutional repair record}
+
+\subsection{Interface separation and review actions}
+
+The following wireframe specifies three distinguishable regions. Text labels and reading order should preserve their separation without relying on color. A translated gloss is a separate version with a reviewer status, not a silent replacement of the original account. The layout is a constructed design proposal, not a usability-tested interface or an implementation used in the study.
+\begin{table}[htbp]
+\caption{Proposed intake interface: three regions with distinct evidentiary roles. This is a specification, not a tested system.}
+\label{tab:interface}
+\centering
+\begin{tabular}{@{}p{0.29\linewidth}p{0.31\linewidth}p{0.3\linewidth}@{}}
+\toprule
+Original account & Model interpretation & External legal context \\
+\midrule
+Speaker text, original language, version, and separately labeled translations. & Proposed assertions with complaint-span links; unverified or unsupported status visible. & Source case or rule, document/version ID, and explicit other-person attribution. \\
+Request correction or language assistance without editing the archived version. & Contested assertions hold consequential routing for staffed review. & Source relevance never supplies a missing personal fact; legal applicability requires separate review. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A separate action region displays the proposed destination, review status, assigned correction owner, and pending tasks. Actions include request correction, ask for language support, and use the staffed alternative. Receipt or translation review must not be represented as agreement with every assertion. The speaker's confirmation of intended meaning is not verification of disputed events or legal eligibility. A model's self-assigned confidence cannot release a held route.
+
+\subsection{Event record and closure conditions}
+
+Each correction event has a case identifier, original-account version, assertion identifier, evidence-span pointers, external-source identifiers, support status, contested content tags, assigned owner, event time, review disposition, corrected version, destination receipts, and unresolved status. Public evaluation artifacts should contain only justified deidentified records; operational records require access control and a retention policy. The editable template keeps observed events and outcomes null because none were collected here.
+
+The transition sequence is captured, pending review, meaning reviewed, route reviewed, correction propagated, and receipt verified. An unresolved interpretation or missing receipt prevents successful closure. A service records who bears translation, delay, and repeated-explanation costs. It must define staffing and escalation rules locally rather than deriving a service deadline from this manuscript. Empirical evaluation should test whether people can distinguish the regions, locate an unsupported addition, contest it in their language, and obtain a propagated correction. No such completion rates, staffing costs, or user outcomes are claimed.
 
 \end{document}

@@ -61,6 +61,16 @@ for x in ROBUST['archive_lexical_stress_test']:
  lo,hi=x['leave_one_component_out_delta_range_pp']
  rows.append([x['jaccard_threshold'],x['n_components'],x['largest_component'],f"{x['equal_component_weight_delta_pp']:+.2f}",f"[{lo:+.2f}, {hi:+.2f}]"])
 TABLES['TABLE_LEXICAL_STRESS']=make_table('Post-hoc lexical grouping of the 60 archived scenarios: Llama3 retrieval minus no retrieval under full Kannada-script priming. Groups are stress tests, not validated templates.', ['Threshold','Groups','Largest','Group-weighted pp','Omission range pp'],rows,label='tab:lexical-stress')
+TABLES['TABLE_TYPOLOGY']=make_table('Proposed nonexclusive content tags for attribution audit. Examples are hypothetical unsupported assertions, not observed outputs or statements of law.', ['Content tag','Constructed change to the account','Boundary to check'],[
+ ['Actor','An unnamed employer becomes the named defendant in a source case.','Whose action or identity is asserted?'],
+ ['Event / relationship','A wage complaint becomes dismissal after an absence.','Is this event or relation in the account?'],
+ ['Time / procedure',"A source case filing date becomes the speaker's filing date.",'Distinguish a source timeline from this case.'],
+ ['Amount / place',"A source award or location becomes the speaker's loss or residence.",'Do not transfer amounts or places.'],
+ ['Legal status',"A source party's employment status is assigned to the speaker.",'Separate factual premise from legal applicability.'],
+ ['Modality','A possible event becomes an established assertion.','Preserve uncertainty, negation, and questions.']], [.16,.42,.32],label='tab:typology')
+TABLES['TABLE_INTERFACE']=make_table('Proposed intake interface: three regions with distinct evidentiary roles. This is a specification, not a tested system.', ['Original account','Model interpretation','External legal context'],[
+ ['Speaker text, original language, version, and separately labeled translations.','Proposed assertions with complaint-span links; unverified or unsupported status visible.','Source case or rule, document/version ID, and explicit other-person attribution.'],
+ ['Request correction or language assistance without editing the archived version.','Contested assertions hold consequential routing for staffed review.','Source relevance never supplies a missing personal fact; legal applicability requires separate review.']], [.29,.31,.30],label='tab:interface')
 def main():
     source=(ROOT/'paper/manuscript_source.md').read_text();blocks=re.split(r'\n\s*\n',source.strip())
     title=blocks[0].removeprefix('# ')

@@ -1,3 +1,9 @@
+## Latest governance revision - November 3, 2026
+
+The current PDF has 23 pages: main 1-13, ethics/AI 14, references 15, Appendix A 16, B 17-18, C 19-20, D 21-22, and new E 23. Added a proposed six-tag attribution typology, five-stage repair workflow, interface/event specification and candidate-2 template. These are unvalidated design tools; no new expert labels, service observations or inference were added. The separate cover-letter overlap disclosure is drafted but unsent. All 23 pages were rendered and visually checked; no clipping, unresolved citations, overfull boxes, identifying author metadata or author-repository links were found. Inference and robustness artifact hashes are unchanged. See GOVERNANCE_REVISION.md and COVER_LETTER_OVERLAP_DISCLOSURE.md. Earlier build descriptions below are historical.
+
+---
+
 ## Latest manuscript focus revision - November 3, 2026
 
 The current PDF has 21 pages: main 1-12, ethics/AI 13, references 14, appendices A-D 15-21. Historical benchmark tables, detailed script/priming results and the full archival comparison appendix have been removed from the PDF; raw data and complete audit artifacts remain. Attribution is retained. Research questions and main results center on the complaint-fidelity framework and new 384-call experiment. All pages were visually checked, with no unresolved citations or overfull boxes. See FOCUSED_MANUSCRIPT_REVISION.md. Earlier page counts and descriptions below are historical.

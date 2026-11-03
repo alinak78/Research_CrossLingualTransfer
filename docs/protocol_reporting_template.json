@@ -2,7 +2,7 @@
   "artifact_type": "candidate_reporting_template",
   "evidence_status": "template_not_study_results",
   "study_id": null,
-  "protocol_version": "candidate-1",
+  "protocol_version": "candidate-2",
   "institution": {
     "action": null,
     "acceptable_alternatives": null,
@@ -44,7 +44,16 @@
     "reviewer_language_competence": null,
     "competing_pragmatic_readings": null,
     "code_switching_effects": null,
-    "original_spans_and_alternative_glosses": null
+    "original_spans_and_alternative_glosses": null,
+    "content_tags": [
+      "actor",
+      "event_relationship",
+      "time_procedure",
+      "amount_place",
+      "legal_status",
+      "modality"
+    ],
+    "content_tag_status": "proposed_nonexclusive_tags_not_empirically_validated"
   },
   "outcomes": {
     "status": "not measured",
@@ -67,7 +76,34 @@
     "propagation_time": null,
     "downstream_receipt_verified": null,
     "unresolved_corrections": null,
-    "translation_cost_bearer": null
+    "translation_cost_bearer": null,
+    "workflow_status": "proposed_not_implemented",
+    "case_events": null,
+    "event_fields": [
+      "case_id",
+      "original_account_version",
+      "assertion_id",
+      "complaint_span_pointers",
+      "source_ids",
+      "support_status",
+      "content_tags",
+      "assigned_owner",
+      "event_time",
+      "review_disposition",
+      "corrected_version",
+      "destination_receipts",
+      "unresolved_status"
+    ],
+    "proposed_states": [
+      "captured",
+      "pending_review",
+      "meaning_reviewed",
+      "route_reviewed",
+      "correction_propagated",
+      "receipt_verified",
+      "unresolved"
+    ],
+    "closure_rule": "No successful closure while required review is unresolved or downstream receipt is unverified."
   },
   "claim_boundary": "Populate only observed evidence. Null is unmeasured, not zero. No certification or publication-eligibility claim."
 }
