@@ -2,9 +2,6 @@
 from pathlib import Path
 import json,re
 ROOT=Path(__file__).resolve().parents[1]
-DATA=json.loads((ROOT/'analysis/results.json').read_text())
-SUMMARY={(r['model'],r['condition']):r for r in DATA['summary']}
-MODELS=['llama3','hex1','sarvam']
 REFS={
  'injecagent':('Zhan et al. (2024). InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents. Findings of ACL, 10471-10506.','https://aclanthology.org/2024.findings-acl.624/'),
  'prior':('Shetty et al. (2026). Cross Lingual Transfer in Tulu Legal Comprehension: Script-Dependent Improvement and RAG-Induced Knowledge Conflict. ORACLE, 107-133.','https://aclanthology.org/2026.oracle-main.8/'),
@@ -31,34 +28,10 @@ def make_table(caption,headers,rows,widths=None,label=''):
 TABLES={}
 TABLES['TABLE_FRAMEWORK']=make_table('Evaluation layers and the evidence needed to assess them.',
  ['Layer','Audit question','Evidence in this paper'],[
- ['Category reproduction','Does the output match the designated primary label?','Archived predictions and 384 new calls; labels not independently validated.'],
+ ['Category reproduction','Does the output match the designated primary label?','384 new calls on reused development cases; labels not independently validated.'],
  ['Complaint fidelity','Are assertions about this complaint supported by the account?','Protocol and literal-marker screen; no expert-labeled fidelity results.'],
  ['Referral validity','Is the next step appropriate for a specified service?','Institutional validation proposed; no observed referral outcomes.']],
  [.18,.32,.40],'tab:framework')
-TABLES['TABLE_CONDITIONS']=make_table('Conditions used in the selected paired comparisons.',
- ['Code','Query representation','Priming','Retrieval'],[
- ['G / H','Romanized / Kannada-script Tulu','None','No'],
- ['M_sparse / E_sparse','Romanized / Kannada-script Tulu','Sparse','No'],
- ['M_full / E_full','Romanized / Kannada-script Tulu','Full','No'],
- ['F','Kannada-script Tulu','None','Yes'],
- ['D_sparse / D_full','Kannada-script Tulu','Sparse / full','Yes'],
- ['A','English gloss','None','Yes']], [.24,.34,.15,.11],'tab:conditions')
-cols=['H','G','E_sparse','E_full','F','D_sparse','D_full']
-TABLES['TABLE_ACCURACY']=make_table('Correct primary labels out of 60 scenarios; all invalid outputs count as errors.',
- ['Model','H','G','E sparse','E full','F','D sparse','D full'],
- [[m]+[f"{SUMMARY[m,c]['correct']}/60" for c in cols] for m in MODELS],label='tab:accuracy')
-retrieval=[next(r for r in DATA['comparisons'] if r['model']==m and r['contrast']=='retrieval_full') for m in MODELS]
-TABLES['TABLE_REVERSALS']=make_table('Full-priming Kannada-script retrieval contrasts. Reversals become incorrect; recoveries become correct.',
- ['Model','Reversals','Recoveries','Label changes','Delta pp','Holm p'],
- [[r['model'],r['b_only_correct'],r['a_only_correct'],r['label_flips'],f"{r['delta_pp']:+.1f}",f"{r['p_holm']:.5f}"] for r in retrieval], label='tab:reversals')
-allpairs=[]
-for m in MODELS:
- for r in DATA['comparisons']:
-  if r['model']!=m:continue
-  allpairs.append([m,r['a']+' vs '+r['b'],r['a_only_correct'],r['b_only_correct'],r['label_flips'],f"{r['delta_pp']:+.1f}",f"{r['p_exact']:.6f}",f"{r['p_holm']:.6f}"])
-TABLES['TABLE_ALL_PAIRS']=make_table('All 18 selected paired comparisons. Positive differences favor condition A, the first condition in the pair.',
- ['Model','A vs B','A only','B only','Changes','Delta pp','Exact p','Holm p'],allpairs,
- [.08,.27,.06,.06,.07,.07,.10,.10],'tab:all-pairs')
 NEW=json.loads((ROOT/'experiments/runs/2026-10-30_local1b_v2/analysis.json').read_text())
 LOOK={(x['script'],x['context_condition'],x['policy']):x for x in NEW['summary']}
 SCRIPTS={'english':'E','romanized':'T','kannada':'K'}
@@ -91,7 +64,7 @@ TABLES['TABLE_LEXICAL_STRESS']=make_table('Post-hoc lexical grouping of the 60 a
 def main():
     source=(ROOT/'paper/manuscript_source.md').read_text();blocks=re.split(r'\n\s*\n',source.strip())
     title=blocks[0].removeprefix('# ')
-    notice='Working manuscript. Published pilot predictions are reused and supplemented by 384 new exploratory local-model calls. Expert fidelity validation remains unexecuted; publication eligibility remains unresolved.'
+    notice='Working manuscript. Development scenarios and supplementary archived evidence are reused from Shetty et al.; 384 new exploratory local-model calls are reported here. Expert fidelity validation remains unexecuted.'
     md=source
     for key,(mt,_) in TABLES.items():md=md.replace('['+key+']',mt)
     md=md.replace('[BIBLIOGRAPHY]','\n\n'.join(f'[{k}] {t} [Source]({u})' for k,(t,u) in REFS.items()))

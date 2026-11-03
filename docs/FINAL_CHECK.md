@@ -1,3 +1,9 @@
+## Latest manuscript focus revision - November 3, 2026
+
+The current PDF has 21 pages: main 1-12, ethics/AI 13, references 14, appendices A-D 15-21. Historical benchmark tables, detailed script/priming results and the full archival comparison appendix have been removed from the PDF; raw data and complete audit artifacts remain. Attribution is retained. Research questions and main results center on the complaint-fidelity framework and new 384-call experiment. All pages were visually checked, with no unresolved citations or overfull boxes. See FOCUSED_MANUSCRIPT_REVISION.md. Earlier page counts and descriptions below are historical.
+
+---
+
 ## Current revision: November 3, 2026 robustness audit
 
 This revision supersedes earlier page counts: 24 total pages, main content 1-14, ethics/AI 15, references 16, appendices A-D 17-24. Completed offline sensitivity analyses add all-attempt missing-marker bounds, truncation breakdowns, case/category omission, lexical grouping stress tests and a hash-only corpus inventory. See LIMITATION_MITIGATIONS.md for what is improved and what remains unresolved. There are still 384 main-run model calls, 308 valid structures, 76 truncations, two separate smoke calls and no expert labels, new participants or new inference. Independent linguistic/legal validation, demographic coverage, true template provenance, natural retrieval and multiple-model/repeated-generation evidence remain absent. The latest 24 pages were rendered and visually checked; no clipping, unresolved citations, overfull boxes, or identifying author metadata were found. Missing-outcome bound formulas passed exhaustive attainable-extrema checks for group sizes 1-4, and every lexical partition covers exactly the 60 distinct cases. Original model-call counts and request hashes remain verified. Earlier checks and planning notes below are historical.

@@ -47,7 +47,7 @@ The official abstract cutoff is **October 27, 2026 at 11:59 p.m. Anywhere on Ear
 
 ## Protocol implementation materials
 
-The current PDF has 14 main pages, one endmatter page, one reference page, and eight appendix pages (24 total). Appendix B supplies five constructed examples and a reporting specification. Editable companion materials: [protocol examples](docs/PROTOCOL_EXAMPLES.md) and [reporting template](docs/protocol_reporting_template.json). Unmeasured fields remain null; these artifacts are not collected annotations or study results. The download ZIP includes the revised PDF, manuscript sources, audit code/results, and protocol materials.
+The current PDF has 12 main pages, one endmatter page, one reference page, and seven appendix pages (21 total). Appendix B supplies five constructed examples and a reporting specification. Editable companion materials: [protocol examples](docs/PROTOCOL_EXAMPLES.md) and [reporting template](docs/protocol_reporting_template.json). Unmeasured fields remain null; these artifacts are not collected annotations or study results. The download ZIP includes the revised PDF, manuscript sources, audit code/results, and protocol materials.
 
 The latest revision adds an explicit architecture analogy, a capacity-based condition for withholding consequential automated routing, and multilingual disagreement fields. The main-text page limit remains satisfied; appendices remain separate from main content.
 
@@ -63,3 +63,7 @@ The prompt guard does not consistently improve the descriptive category scores; 
 ## Robustness revision: November 3, 2026
 
 The current paper adds all-attempt missing-marker bounds, completion breakdowns, scenario/category omission diagnostics, lexical dependence stress tests, and a corpus provenance inventory. These are completed offline analyses, not expert validation or new model inference. Appendix D documents the methods and results; main content remains 14 pages. See [mitigations and unresolved gaps](docs/LIMITATION_MITIGATIONS.md) and [full robustness results](analysis/ROBUSTNESS.md). Run `python3 experiments/robustness_audit.py` before rebuilding the paper; the builder reads `analysis/robustness.json`.
+
+## Focused manuscript revision
+
+The current paper removes the historical benchmark tables, detailed script/priming comparisons and full historical statistical appendix from the PDF. Its research questions and main results now emphasize complaint fidelity, the 384 new generations, and institutional correction. Source-study attribution remains explicit; full historical audit files remain available. The latest PDF is 21 pages with 12 main pages. See [revision record](docs/FOCUSED_MANUSCRIPT_REVISION.md). This status supersedes earlier page counts above.
